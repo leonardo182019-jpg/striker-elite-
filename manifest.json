@@ -1,0 +1,29 @@
+{
+  "name": "Striker Elite",
+  "short_name": "STRIKER",
+  "description": "Sistema de entrenamiento de élite para delanteros",
+  "start_url": "/striker-elite/",
+  "scope": "/striker-elite/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080a0c",
+  "theme_color": "#f5b800",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/26bd.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/26bd.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/26bd.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["sports", "health", "fitness"]
+}
