@@ -1299,5 +1299,7 @@ function showToast(icon, msg) {
   setTimeout(() => t.classList.remove('show'), 3500);
 }
 </script>
+<link rel="manifest" href="manifest.json">
+<script>if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');</script>
 </body>
 </html>
