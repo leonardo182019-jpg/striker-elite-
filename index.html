@@ -432,6 +432,60 @@ select option { background: var(--card); }
 .video-title { font-size:13px; color:var(--text); line-height:1.4; margin-bottom:3px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .video-yt-label { font-family:var(--font-mono); font-size:10px; color:var(--red); letter-spacing:1px; }
 
+/* ── ASSESSMENT ── */
+.assess-test-card {
+  background:var(--card2); border:1px solid var(--border);
+  border-radius:12px; padding:20px; margin-bottom:14px;
+  transition:all 0.25s; position:relative; overflow:hidden;
+}
+.assess-test-card.completed { border-color:var(--green); }
+.assess-test-card.completed::before { content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(45,198,83,0.04) 0%, transparent 60%); pointer-events:none; }
+.assess-test-card.locked { opacity:0.45; }
+.assess-header { display:flex; align-items:center; gap:14px; margin-bottom:12px; }
+.assess-icon { font-size:36px; flex-shrink:0; }
+.assess-info { flex:1; }
+.assess-name { font-family:var(--font-display); font-size:20px; margin-bottom:3px; letter-spacing:1px; }
+.assess-category { font-family:var(--font-mono); font-size:10px; letter-spacing:2px; color:var(--text2); }
+.assess-status-icon { font-size:24px; }
+.assess-desc { font-size:13px; color:var(--text2); line-height:1.6; margin-bottom:14px; }
+.assess-result-row { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.assess-result-val { font-family:var(--font-display); font-size:28px; line-height:1; }
+.assess-result-val.elite { color:var(--gold); }
+.assess-result-val.good  { color:var(--green); }
+.assess-result-val.avg   { color:var(--blue); }
+.assess-result-val.weak  { color:var(--red); }
+.assess-result-unit { font-family:var(--font-mono); font-size:11px; color:var(--text3); letter-spacing:1px; }
+.assess-result-label { font-size:12px; color:var(--text2); }
+.assess-ref-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.assess-ref-chip { font-family:var(--font-mono); font-size:10px; padding:3px 10px;
+  border-radius:4px; letter-spacing:1px; }
+.ref-elite { background:rgba(245,184,0,0.12); color:var(--gold); border:1px solid rgba(245,184,0,0.3); }
+.ref-pro   { background:rgba(45,198,83,0.1);  color:var(--green); border:1px solid rgba(45,198,83,0.3); }
+.ref-avg   { background:rgba(61,155,233,0.1); color:var(--blue);  border:1px solid rgba(61,155,233,0.3); }
+.ref-weak  { background:rgba(230,57,70,0.1);  color:var(--red);   border:1px solid rgba(230,57,70,0.3); }
+.btn-assess { padding:10px 20px; background:var(--gold); color:var(--black);
+  border:none; border-radius:6px; cursor:pointer; font-family:var(--font-display);
+  font-size:16px; letter-spacing:1px; transition:all 0.2s; }
+.btn-assess:hover { background:var(--gold2); transform:translateY(-1px); }
+.btn-redo { padding:8px 16px; background:transparent; color:var(--text2);
+  border:1px solid var(--border); border-radius:6px; cursor:pointer;
+  font-family:var(--font-mono); font-size:11px; letter-spacing:1px; transition:all 0.2s; }
+.btn-redo:hover { border-color:var(--gold); color:var(--gold); }
+
+/* number input inside modal */
+.assess-input-group { margin-bottom:14px; }
+.assess-input-group label { font-family:var(--font-mono); font-size:11px; letter-spacing:2px; color:var(--text2); display:block; margin-bottom:6px; text-transform:uppercase; }
+.assess-num-input { display:flex; align-items:center; gap:12px; }
+.assess-num-input input { flex:1; padding:14px 16px; background:var(--card2); border:1px solid var(--border);
+  border-radius:6px; color:var(--text); font-family:var(--font-display); font-size:28px;
+  text-align:center; outline:none; transition:border-color 0.2s; }
+.assess-num-input input:focus { border-color:var(--gold); }
+.assess-num-input .unit-label { font-family:var(--font-mono); font-size:13px; color:var(--text2); letter-spacing:1px; }
+.assess-range-preview { text-align:center; padding:10px; background:var(--black); border-radius:6px;
+  font-family:var(--font-mono); font-size:12px; color:var(--text2); margin-top:8px; letter-spacing:1px; }
+.assess-range-preview span { font-size:16px; font-weight:bold; }
+
 /* ── TIMER ── */
 .timer-wrap {
   background: var(--black); border:1px solid var(--border);
@@ -577,6 +631,127 @@ select option { background: var(--card); }
   border-bottom:1px solid var(--border); font-size:13px; }
 .vd-challenge-item:last-child { border-bottom:none; }
 .vd-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+/* ── PLAN 90 DÍAS ── */
+.phase-card { border-radius:10px; padding:20px; border:1px solid var(--border); text-align:center; }
+.phase-card.p1 { background:linear-gradient(135deg,rgba(61,155,233,0.08),transparent); border-color:var(--blue); }
+.phase-card.p2 { background:linear-gradient(135deg,rgba(245,184,0,0.08),transparent); border-color:var(--gold); }
+.phase-card.p3 { background:linear-gradient(135deg,rgba(45,198,83,0.08),transparent); border-color:var(--green); }
+.phase-num { font-family:var(--font-display); font-size:40px; margin-bottom:4px; }
+.phase-name { font-family:var(--font-display); font-size:20px; letter-spacing:1px; margin-bottom:6px; }
+.phase-desc { font-size:12px; color:var(--text2); line-height:1.5; }
+.week-row { background:var(--card2); border:1px solid var(--border); border-radius:8px;
+  padding:14px 18px; margin-bottom:10px; display:flex; align-items:center; gap:14px;
+  transition:all 0.2s; cursor:pointer; }
+.week-row:hover { border-color:var(--border2); }
+.week-row.active-week { border-color:var(--gold); background:var(--gold-dim); }
+.week-row.done-week { border-color:var(--green); opacity:0.7; }
+.week-num { font-family:var(--font-display); font-size:22px; width:36px; text-align:center; flex-shrink:0; }
+.week-info { flex:1; }
+.week-title { font-family:var(--font-display); font-size:16px; margin-bottom:2px; }
+.week-focus { font-size:12px; color:var(--text2); font-family:var(--font-mono); letter-spacing:1px; }
+.week-status { font-size:18px; }
+.milestone-badge { display:inline-flex; align-items:center; gap:6px; padding:6px 14px;
+  border-radius:20px; font-family:var(--font-mono); font-size:11px; letter-spacing:1px;
+  margin:4px; cursor:pointer; transition:all 0.2s; }
+.ms-locked { background:var(--card2); border:1px solid var(--border); color:var(--text3); }
+.ms-done   { background:rgba(45,198,83,0.15); border:1px solid var(--green); color:var(--green); }
+.ms-active { background:var(--gold-dim); border:1px solid var(--gold); color:var(--gold); }
+
+/* ── NUTRICIÓN ── */
+.macro-ring-wrap { display:flex; justify-content:center; align-items:center; gap:32px; padding:20px 0; flex-wrap:wrap; }
+.macro-circle { text-align:center; }
+.macro-val { font-family:var(--font-display); font-size:36px; line-height:1; }
+.macro-lbl { font-family:var(--font-mono); font-size:10px; letter-spacing:2px; color:var(--text2); margin-top:4px; }
+.meal-card { background:var(--card2); border:1px solid var(--border); border-radius:10px;
+  padding:16px; margin-bottom:12px; }
+.meal-time { font-family:var(--font-mono); font-size:10px; letter-spacing:2px; color:var(--gold); margin-bottom:6px; }
+.meal-title { font-family:var(--font-display); font-size:18px; margin-bottom:6px; }
+.meal-items { font-size:13px; color:var(--text2); line-height:1.7; }
+.meal-kcal { font-family:var(--font-mono); font-size:11px; color:var(--text3); margin-top:6px; }
+.nutrition-tip { background:var(--card2); border-left:3px solid var(--gold); padding:12px 16px;
+  border-radius:0 8px 8px 0; margin-bottom:10px; font-size:13px; color:var(--text2); line-height:1.6; }
+.hydration-bar { height:12px; background:var(--border); border-radius:6px; overflow:hidden; margin-top:8px; }
+.hydration-fill { height:100%; border-radius:6px; background:linear-gradient(90deg,var(--blue),#5bc8ff); transition:width 1s ease; }
+
+/* ── ÉLITE COMPARATIVA ── */
+.elite-player-row { display:flex; align-items:center; gap:16px; padding:14px 18px;
+  background:var(--card2); border:1px solid var(--border); border-radius:10px; margin-bottom:12px; }
+.elite-avatar { width:52px; height:52px; border-radius:50%; display:flex; align-items:center;
+  justify-content:center; font-size:22px; flex-shrink:0; border:2px solid var(--border); }
+.elite-name { font-family:var(--font-display); font-size:18px; margin-bottom:2px; }
+.elite-club { font-size:12px; color:var(--text2); font-family:var(--font-mono); letter-spacing:1px; }
+.elite-compare-row { display:flex; align-items:center; gap:8px; margin-top:8px; }
+.elite-you-val { font-family:var(--font-display); font-size:20px; color:var(--gold); width:36px; text-align:right; flex-shrink:0; }
+.elite-track { flex:1; height:6px; background:var(--border); border-radius:3px; overflow:hidden; position:relative; }
+.elite-fill-you { height:100%; background:var(--gold); border-radius:3px; position:absolute; left:0; transition:width 1s ease; }
+.elite-fill-pro { height:100%; background:rgba(61,155,233,0.4); border-radius:3px; position:absolute; left:0; }
+.elite-pro-val { font-family:var(--font-display); font-size:20px; color:var(--blue); width:36px; flex-shrink:0; }
+.elite-stat-lbl { font-family:var(--font-mono); font-size:10px; color:var(--text3); letter-spacing:1px; width:80px; flex-shrink:0; }
+.gap-chip { font-family:var(--font-mono); font-size:10px; padding:2px 8px; border-radius:3px; flex-shrink:0; }
+.gap-pos { background:rgba(45,198,83,0.15); color:var(--green); }
+.gap-neg { background:rgba(230,57,70,0.15); color:var(--red); }
+.gap-zero{ background:var(--gold-dim); color:var(--gold); }
+
+/* ── TARJETA FIFA ── */
+.fifa-card {
+  width:280px; background:linear-gradient(145deg,#1a1200,#2d2000,#1a1200);
+  border-radius:18px; padding:20px; border:2px solid var(--gold);
+  box-shadow:0 0 40px rgba(245,184,0,0.2); position:relative; overflow:hidden;
+  font-family:var(--font-display);
+}
+.fifa-card::before { content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 0%, rgba(245,184,0,0.12) 0%, transparent 70%); }
+.fifa-top { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; position:relative; z-index:1; }
+.fifa-rating { font-size:56px; color:var(--gold); line-height:1; }
+.fifa-pos-nation { text-align:right; }
+.fifa-pos { font-size:18px; color:var(--gold); letter-spacing:2px; }
+.fifa-flag { font-size:24px; margin-top:4px; }
+.fifa-avatar-wrap { display:flex; justify-content:center; margin-bottom:10px; position:relative; z-index:1; }
+.fifa-avatar-circle { width:80px; height:80px; border-radius:50%; background:var(--gold-dim);
+  border:2px solid var(--gold); display:flex; align-items:center; justify-content:center;
+  font-size:40px; color:var(--gold); }
+.fifa-name { text-align:center; font-size:24px; letter-spacing:3px; color:#ffe88a;
+  margin-bottom:6px; position:relative; z-index:1; text-shadow:0 1px 4px rgba(0,0,0,0.5); }
+.fifa-club { text-align:center; font-family:var(--font-mono); font-size:10px; letter-spacing:2px;
+  color:rgba(255,215,0,0.5); margin-bottom:14px; position:relative; z-index:1; }
+.fifa-divider { height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin-bottom:14px; position:relative; z-index:1; }
+.fifa-stats-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:6px; position:relative; z-index:1; }
+.fifa-stat { text-align:center; }
+.fifa-stat-val { font-size:22px; color:var(--gold2); line-height:1; }
+.fifa-stat-name { font-family:var(--font-mono); font-size:9px; letter-spacing:1px; color:rgba(255,215,0,0.5); margin-top:2px; }
+.fifa-footer { text-align:center; margin-top:12px; font-family:var(--font-mono);
+  font-size:9px; letter-spacing:2px; color:rgba(255,215,0,0.3); position:relative; z-index:1; }
+.btn-share-card { padding:12px 28px; background:var(--gold); color:var(--black);
+  border:none; border-radius:6px; cursor:pointer; font-family:var(--font-display);
+  font-size:18px; letter-spacing:1px; transition:all 0.2s; }
+.btn-share-card:hover { background:var(--gold2); transform:translateY(-2px); }
+
+/* ── DIARIO MENTAL ── */
+.mood-selector { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:16px 0; }
+.mood-btn { width:56px; height:56px; border-radius:12px; font-size:28px; cursor:pointer;
+  background:var(--card2); border:1px solid var(--border); transition:all 0.2s;
+  display:flex; align-items:center; justify-content:center; }
+.mood-btn:hover { transform:scale(1.1); }
+.mood-btn.selected { border-color:var(--gold); background:var(--gold-dim); transform:scale(1.15); box-shadow:0 0 12px var(--gold-glow); }
+.journal-entry-card { background:var(--card2); border:1px solid var(--border); border-radius:10px;
+  padding:16px; margin-bottom:12px; }
+.journal-entry-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.journal-mood-icon { font-size:24px; }
+.journal-entry-date { font-family:var(--font-mono); font-size:11px; color:var(--text3); letter-spacing:1px; }
+.journal-entry-text { font-size:13px; color:var(--text2); line-height:1.6; }
+.journal-performance { font-family:var(--font-mono); font-size:11px; margin-top:8px; }
+.journal-textarea { width:100%; padding:12px; background:var(--card2); border:1px solid var(--border);
+  border-radius:6px; color:var(--text); font-family:var(--font-body); font-size:14px;
+  resize:vertical; min-height:80px; outline:none; transition:border-color 0.2s; }
+.journal-textarea:focus { border-color:var(--gold); }
+.energy-slider-wrap { margin:12px 0; }
+.energy-slider { width:100%; accent-color:var(--gold); }
+.pattern-insight { background:linear-gradient(135deg,var(--card2),rgba(245,184,0,0.04));
+  border:1px solid var(--gold); border-radius:10px; padding:16px; margin-top:16px; }
+.pattern-title { font-family:var(--font-display); font-size:18px; color:var(--gold); margin-bottom:8px; }
+.pattern-text { font-size:13px; color:var(--text2); line-height:1.6; }
 
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width:6px; height:6px; }
@@ -790,7 +965,13 @@ select option { background: var(--card); }
     <button class="tab-btn" onclick="showTab('stats')">📈 Estadísticas</button>
     <button class="tab-btn" onclick="showTab('tips')">🧠 Conocimiento</button>
     <button class="tab-btn" onclick="showTab('medals')">🏅 Logros</button>
+    <button class="tab-btn" onclick="showTab('assessment')">🔬 Evaluación</button>
     <button class="tab-btn" onclick="showTab('dna')">🧬 Mi ADN</button>
+    <button class="tab-btn" onclick="showTab('plan')">📅 Plan 90 días</button>
+    <button class="tab-btn" onclick="showTab('nutrition')">🍎 Nutrición</button>
+    <button class="tab-btn" onclick="showTab('elite')">⭐ Élite</button>
+    <button class="tab-btn" onclick="showTab('card')">🃏 Mi Tarjeta</button>
+    <button class="tab-btn" onclick="showTab('journal')">😊 Diario</button>
   </div>
 
   <div class="app-content">
@@ -949,6 +1130,36 @@ select option { background: var(--card); }
       <div class="grid-3" id="medals-grid"></div>
     </div>
 
+    <!-- ── ASSESSMENT ── -->
+    <div id="tab-assessment" class="tab-panel">
+      <div class="section-title">EVALUACIÓN FÍSICA INICIAL</div>
+      <p class="section-sub">Completa las pruebas para calibrar tus estadísticas reales. Se actualiza automáticamente con tus desafíos.</p>
+
+      <!-- Progress overview -->
+      <div class="card" style="margin-bottom:16px" id="assess-overview">
+        <div class="card-header">
+          <div class="card-title">PROGRESO DE EVALUACIÓN</div>
+          <div class="card-badge badge-gold" id="assess-badge">0 / 8 completadas</div>
+        </div>
+        <div class="prog-track" style="height:10px;margin-bottom:16px">
+          <div class="prog-fill" id="assess-progress-fill" style="width:0%"></div>
+        </div>
+        <div class="grid-4" id="assess-area-scores"></div>
+      </div>
+
+      <!-- Test cards -->
+      <div id="assess-tests-container"></div>
+
+      <!-- Result modal trigger zone -->
+      <div id="assess-result-banner" style="display:none" class="card" style="margin-top:16px;border-color:var(--green)">
+        <div style="text-align:center;padding:8px">
+          <div style="font-size:40px;margin-bottom:8px">🎉</div>
+          <div style="font-family:var(--font-display);font-size:24px;margin-bottom:6px">EVALUACIÓN COMPLETA</div>
+          <div style="font-size:13px;color:var(--text2)">Tus estadísticas han sido calibradas. Ve a <strong>Mi ADN</strong> para ver tu perfil actualizado.</div>
+        </div>
+      </div>
+    </div>
+
     <!-- ── DNA ── -->
     <div id="tab-dna" class="tab-panel dna-tab">
       <div class="section-title">MI ADN DE JUGADOR</div>
@@ -1013,6 +1224,42 @@ select option { background: var(--card); }
       </div>
     </div>
 
+    <!-- ── PLAN 30/60/90 ── -->
+    <div id="tab-plan" class="tab-panel">
+      <div class="section-title">PLAN 30 · 60 · 90 DÍAS</div>
+      <p class="section-sub">Tu hoja de ruta hacia el nivel profesional. Metas semanales, hitos y progresión estructurada.</p>
+      <div class="grid-3" id="plan-phase-cards" style="margin-bottom:20px"></div>
+      <div id="plan-weeks-container"></div>
+    </div>
+
+    <!-- ── NUTRICIÓN ── -->
+    <div id="tab-nutrition" class="tab-panel">
+      <div class="section-title">PLAN DE NUTRICIÓN</div>
+      <p class="section-sub">Calorías, macros y timing de comidas calculados según tu peso, posición y carga semanal.</p>
+      <div id="nutrition-content"></div>
+    </div>
+
+    <!-- ── ÉLITE COMPARATIVA ── -->
+    <div id="tab-elite" class="tab-panel">
+      <div class="section-title">COMPARATIVA ÉLITE</div>
+      <p class="section-sub">Tus estadísticas vs jugadores profesionales de tu posición. Ve qué tan cerca estás del nivel mundial.</p>
+      <div id="elite-content"></div>
+    </div>
+
+    <!-- ── TARJETA FIFA ── -->
+    <div id="tab-card" class="tab-panel">
+      <div class="section-title">MI TARJETA DE JUGADOR</div>
+      <p class="section-sub">Tu tarjeta dinámica estilo FIFA generada con tus estadísticas reales.</p>
+      <div id="card-content" style="display:flex;flex-direction:column;align-items:center;gap:20px"></div>
+    </div>
+
+    <!-- ── DIARIO MENTAL ── -->
+    <div id="tab-journal" class="tab-panel">
+      <div class="section-title">DIARIO MENTAL</div>
+      <p class="section-sub">Registra tu estado pre/post entrenamiento. Descubre patrones entre emoción y rendimiento.</p>
+      <div id="journal-content"></div>
+    </div>
+
   </div><!-- /app-content -->
 </div><!-- /screen-app -->
 
@@ -1057,6 +1304,42 @@ select option { background: var(--card); }
   </div>
 </div>
 
+<!-- ════════ ASSESSMENT MODAL ════════ -->
+<div class="modal-overlay" id="assess-modal">
+  <div class="modal-box" style="max-height:92vh;overflow-y:auto">
+    <div id="amodal-icon" style="font-size:40px;margin-bottom:8px;text-align:center"></div>
+    <div class="modal-title" id="amodal-title"></div>
+    <div class="modal-desc" id="amodal-desc" style="margin-bottom:16px"></div>
+
+    <!-- Protocol steps -->
+    <div class="modal-steps" id="amodal-steps" style="margin-bottom:20px"></div>
+
+    <!-- Timer (reuse global timer) -->
+    <div class="timer-wrap" id="amodal-timer-wrap">
+      <div class="timer-mode-tabs">
+        <button class="timer-mode-btn active" id="amode-countdown" onclick="setTimerMode('countdown')">CUENTA REGRESIVA</button>
+        <button class="timer-mode-btn" id="amode-stopwatch" onclick="setTimerMode('stopwatch')">CRONÓMETRO</button>
+      </div>
+      <div class="timer-preset-row" id="amodal-presets"></div>
+      <div class="timer-track"><div class="timer-fill" id="timer-fill" style="width:100%"></div></div>
+      <div class="timer-display" id="timer-display">00:00</div>
+      <div class="timer-btns">
+        <button class="timer-btn start" id="timer-start-btn" onclick="timerStartPause()">▶ INICIAR</button>
+        <button class="timer-btn reset" onclick="timerReset()">↺ RESET</button>
+      </div>
+      <div id="timer-msg" style="font-family:var(--font-mono);font-size:11px;color:var(--text3);letter-spacing:1px;min-height:16px"></div>
+    </div>
+
+    <!-- Input result -->
+    <div id="amodal-input-wrap" style="margin-bottom:20px"></div>
+
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeAssessModal()">CANCELAR</button>
+      <button class="btn-submit" id="amodal-submit" disabled onclick="submitAssessment()">GUARDAR RESULTADO</button>
+    </div>
+  </div>
+</div>
+
 <!-- TOAST -->
 <div class="toast" id="toast">
   <span class="toast-icon" id="toast-icon">🏆</span>
@@ -1086,6 +1369,10 @@ const XP_PER_LEVEL = 500;
 //  LOCALSTORAGE — GUARDAR / CARGAR
 // ════════════════════════════════
 let weeklySnapshots = []; // { week, tecnica, fisico, tactica, mental, xp }
+let assessmentResults = {}; // testId -> { value, score, ts }
+let journalEntries   = []; // { ts, mood, energy, note, perfScore }
+let completedWeeks   = []; // week numbers done
+let milestonesDone   = []; // milestone ids
 
 const SAVE_KEY = 'striker_elite_save';
 
@@ -1096,6 +1383,8 @@ function saveProgress() {
     completedChallenges,
     weeklySnapshots,
     unlockedMedals,
+    assessmentResults,
+    journalEntries, completedWeeks, milestonesDone,
     history: window._history || [],
     savedAt: new Date().toISOString()
   };
@@ -1124,7 +1413,11 @@ function loadProgress() {
     streak = data.streak || 0;
     completedChallenges = data.completedChallenges || [];
     weeklySnapshots = data.weeklySnapshots || [];
-    unlockedMedals = data.unlockedMedals || [];
+    unlockedMedals  = data.unlockedMedals  || [];
+    assessmentResults = data.assessmentResults || {};
+    journalEntries  = data.journalEntries  || [];
+    completedWeeks  = data.completedWeeks  || [];
+    milestonesDone  = data.milestonesDone  || [];
     window._history = data.history || [];
     return true;
   } catch(e) { return false; }
@@ -1704,6 +1997,8 @@ function initApp() {
   renderStats();
   renderTips();
   renderMedals();
+  renderDNA();
+  renderAssessment();
   updateMedalCountBadge();
 }
 
@@ -1719,6 +2014,7 @@ function launchApp() {
   renderTips();
   renderMedals();
   renderDNA();
+  renderAssessment();
   updateMedalCountBadge();
 }
 
@@ -2641,6 +2937,7 @@ function showTab(id) {
   if (id==='stats') { setTimeout(renderCharts, 100); }
   if (id==='medals') { setTimeout(renderMedals, 100); }
   if (id==='dna') { setTimeout(renderDNA, 100); }
+  if (id==='assessment') { setTimeout(renderAssessment, 100); }
 }
 
 // ════════════════════════════════
@@ -2900,6 +3197,947 @@ function renderDNA() {
         ${done?'<span style="color:var(--green);font-size:11px;margin-left:auto">✓ HECHO</span>':'<span style="color:var(--text3);font-size:11px;margin-left:auto">PENDIENTE</span>'}
       </div>`;
     }).join('')}`;
+}
+
+// ════════════════════════════════
+//  ASSESSMENT SYSTEM
+// ════════════════════════════════
+let currentAssessTest = null;
+
+const ASSESSMENT_TESTS = [
+  {
+    id: 'sprint30',
+    icon: '💨', name: 'SPRINT 30 METROS',
+    category: 'FÍSICO — VELOCIDAD',
+    area: 'fisico', substat: 'velocidad',
+    timerPreset: 30, timerMode: 'stopwatch',
+    desc: 'Mide tu velocidad real en el sprint corto. El sprint de 30m es el test de velocidad estándar en fútbol profesional.',
+    protocol: [
+      'Calienta 10 minutos: trote suave + dinámicos + 2 sprints al 70%',
+      'Marca el inicio y los 30 metros con conos o señales visibles',
+      'Desde posición parada, arranca al máximo y cronometra hasta los 30m',
+      'Realiza 3 intentos con 3 minutos de descanso entre cada uno',
+      'Ingresa tu MEJOR tiempo abajo'
+    ],
+    inputType: 'decimal',
+    inputUnit: 'segundos',
+    inputLabel: 'Tiempo en segundos (ej: 4.2)',
+    inputMin: 2.5, inputMax: 8.0, inputStep: 0.1,
+    references: [
+      { label:'ÉLITE +90', range:'< 3.8 seg', cls:'ref-elite' },
+      { label:'PROFESIONAL', range:'3.8 – 4.2 seg', cls:'ref-pro' },
+      { label:'SEMIPRO', range:'4.3 – 4.8 seg', cls:'ref-avg' },
+      { label:'A MEJORAR', range:'> 4.8 seg', cls:'ref-weak' }
+    ],
+    scoreFormula: (v) => {
+      if (v <= 3.8) return 95; if (v <= 4.0) return 85;
+      if (v <= 4.2) return 75; if (v <= 4.5) return 65;
+      if (v <= 4.8) return 55; if (v <= 5.2) return 40; return 25;
+    },
+    affectedStats: { fisico: ['velocidad','agilidad'] }
+  },
+  {
+    id: 'cooper',
+    icon: '❤️', name: 'TEST DE COOPER (12 min)',
+    category: 'FÍSICO — RESISTENCIA AERÓBICA',
+    area: 'fisico', substat: 'resistencia',
+    timerPreset: 720, timerMode: 'countdown',
+    desc: 'El test de Cooper mide tu capacidad aeróbica corriendo durante 12 minutos continuos. Es el estándar mundial para fútbol.',
+    protocol: [
+      'Busca una pista de atletismo, cancha o ruta medida',
+      'Calienta 8 minutos a ritmo suave',
+      'Inicia el cronómetro y corre 12 minutos al mayor ritmo sostenible',
+      'Al sonar el tiempo, mide la distancia total recorrida en metros',
+      'Ingresa la distancia total abajo'
+    ],
+    inputType: 'integer',
+    inputUnit: 'metros',
+    inputLabel: 'Distancia recorrida en 12 min (ej: 2400)',
+    inputMin: 1000, inputMax: 4200, inputStep: 10,
+    references: [
+      { label:'ÉLITE +90', range:'> 3200 m', cls:'ref-elite' },
+      { label:'PROFESIONAL', range:'2800 – 3200 m', cls:'ref-pro' },
+      { label:'SEMIPRO', range:'2400 – 2800 m', cls:'ref-avg' },
+      { label:'A MEJORAR', range:'< 2400 m', cls:'ref-weak' }
+    ],
+    scoreFormula: (v) => {
+      if (v >= 3200) return 95; if (v >= 2900) return 85;
+      if (v >= 2600) return 75; if (v >= 2400) return 65;
+      if (v >= 2100) return 50; if (v >= 1800) return 35; return 20;
+    },
+    affectedStats: { fisico: ['resistencia','recuperacion'] }
+  },
+  {
+    id: 'salto_vertical',
+    icon: '🦘', name: 'SALTO VERTICAL (CMJ)',
+    category: 'FÍSICO — POTENCIA DE SALTO',
+    area: 'fisico', substat: 'salto',
+    timerPreset: 0, timerMode: 'stopwatch',
+    desc: 'El salto con contramovimiento (CMJ) mide tu potencia explosiva de piernas, clave para cabeceos y duelos aéreos.',
+    protocol: [
+      'Colócate junto a una pared con un marcador en la mano (tiza, cinta)',
+      'Desde posición erguida, marca tu alcance máximo en la pared',
+      'Salta con un movimiento de flexión y extensión rápida',
+      'Marca el punto máximo del salto en la pared',
+      'Mide la diferencia entre los dos puntos en centímetros'
+    ],
+    inputType: 'integer',
+    inputUnit: 'cm',
+    inputLabel: 'Altura del salto en cm (ej: 45)',
+    inputMin: 15, inputMax: 100, inputStep: 1,
+    references: [
+      { label:'ÉLITE +90', range:'> 65 cm', cls:'ref-elite' },
+      { label:'PROFESIONAL', range:'50 – 65 cm', cls:'ref-pro' },
+      { label:'SEMIPRO', range:'38 – 50 cm', cls:'ref-avg' },
+      { label:'A MEJORAR', range:'< 38 cm', cls:'ref-weak' }
+    ],
+    scoreFormula: (v) => {
+      if (v >= 65) return 95; if (v >= 55) return 85;
+      if (v >= 45) return 75; if (v >= 38) return 65;
+      if (v >= 30) return 50; return 35;
+    },
+    affectedStats: { fisico: ['salto','fuerza'], tecnica: ['cabeceo'] }
+  },
+  {
+    id: 'toques_control',
+    icon: '⚽', name: 'MALABARISMO (60 seg)',
+    category: 'TÉCNICA — CONTROL DE BALÓN',
+    area: 'tecnica', substat: 'toque',
+    timerPreset: 60, timerMode: 'countdown',
+    desc: 'Mide tu control técnico real con el balón. Cuenta el total de toques sin caída en 60 segundos.',
+    protocol: [
+      'Busca un balón de fútbol y un espacio abierto de al menos 3x3m',
+      'Inicia el cronómetro de 60 segundos',
+      'Mantén el balón en el aire el mayor tiempo posible con pies, muslos y cabeza',
+      'Cuenta cada toque sin interrupción',
+      'Si el balón cae, recógelo y sigue (registra tu racha más alta)'
+    ],
+    inputType: 'integer',
+    inputUnit: 'toques',
+    inputLabel: 'Toques consecutivos máximos (ej: 35)',
+    inputMin: 0, inputMax: 500, inputStep: 1,
+    references: [
+      { label:'ÉLITE +90', range:'> 150 toques', cls:'ref-elite' },
+      { label:'PROFESIONAL', range:'80 – 150 toques', cls:'ref-pro' },
+      { label:'SEMIPRO', range:'30 – 80 toques', cls:'ref-avg' },
+      { label:'A MEJORAR', range:'< 30 toques', cls:'ref-weak' }
+    ],
+    scoreFormula: (v) => {
+      if (v >= 150) return 95; if (v >= 100) return 85;
+      if (v >= 60)  return 75; if (v >= 30)  return 65;
+      if (v >= 15)  return 50; return 30;
+    },
+    affectedStats: { tecnica: ['toque','regate'] }
+  },
+  {
+    id: 'slalom_conos',
+    icon: '🌀', name: 'SLALOM 6 CONOS',
+    category: 'TÉCNICA — CONDUCCIÓN Y AGILIDAD',
+    area: 'tecnica', substat: 'regate',
+    timerPreset: 30, timerMode: 'stopwatch',
+    desc: 'Mide tu velocidad de conducción con cambios de dirección. Coloca 6 conos separados 1 metro y realiza el slalom ida y vuelta.',
+    protocol: [
+      'Coloca 6 conos en línea con 1 metro de separación entre cada uno',
+      'Conduce el balón en slalom (zigzag) por los 6 conos de ida',
+      'Regresa en slalom por los 6 conos de vuelta',
+      'Cronometra el tiempo total ida + vuelta',
+      'Realiza 3 intentos y registra el MEJOR tiempo'
+    ],
+    inputType: 'decimal',
+    inputUnit: 'segundos',
+    inputLabel: 'Tiempo total ida+vuelta en seg (ej: 9.5)',
+    inputMin: 4.0, inputMax: 20.0, inputStep: 0.1,
+    references: [
+      { label:'ÉLITE +90', range:'< 7.0 seg', cls:'ref-elite' },
+      { label:'PROFESIONAL', range:'7.0 – 8.5 seg', cls:'ref-pro' },
+      { label:'SEMIPRO', range:'8.5 – 10.0 seg', cls:'ref-avg' },
+      { label:'A MEJORAR', range:'> 10.0 seg', cls:'ref-weak' }
+    ],
+    scoreFormula: (v) => {
+      if (v <= 7.0) return 95; if (v <= 7.8) return 85;
+      if (v <= 8.5) return 75; if (v <= 10.0) return 65;
+      if (v <= 12.0) return 50; return 30;
+    },
+    affectedStats: { tecnica: ['regate','toque'], fisico: ['agilidad','velocidad'] }
+  },
+  {
+    id: 'pase_precision',
+    icon: '🎯', name: 'PASE DE PRECISIÓN',
+    category: 'TÉCNICA — PRECISIÓN DE PASE',
+    area: 'tecnica', substat: 'pase',
+    timerPreset: 0, timerMode: 'stopwatch',
+    desc: 'Evalúa tu precisión de pase con ambos pies. 20 intentos hacia un blanco de 1m a 15 metros de distancia.',
+    protocol: [
+      'Marca un blanco circular de 1 metro de diámetro en pared o con conos',
+      'Colócate a 15 metros del blanco',
+      'Realiza 10 pases con tu pie dominante intentando dar al blanco',
+      'Realiza 10 pases con tu pie no dominante desde 10 metros',
+      'Cuenta el total de aciertos sobre 20 intentos'
+    ],
+    inputType: 'integer',
+    inputUnit: 'aciertos',
+    inputLabel: 'Aciertos sobre 20 intentos (ej: 14)',
+    inputMin: 0, inputMax: 20, inputStep: 1,
+    references: [
+      { label:'ÉLITE +90', range:'18 – 20 / 20', cls:'ref-elite' },
+      { label:'PROFESIONAL', range:'14 – 17 / 20', cls:'ref-pro' },
+      { label:'SEMIPRO', range:'10 – 13 / 20', cls:'ref-avg' },
+      { label:'A MEJORAR', range:'< 10 / 20', cls:'ref-weak' }
+    ],
+    scoreFormula: (v) => {
+      if (v >= 18) return 95; if (v >= 15) return 85;
+      if (v >= 12) return 75; if (v >= 9)  return 60;
+      if (v >= 6)  return 45; return 25;
+    },
+    affectedStats: { tecnica: ['pase','toque'] }
+  },
+  {
+    id: 'remate_arco',
+    icon: '🥅', name: 'DEFINICIÓN AL ARCO',
+    category: 'TÉCNICA — REMATE Y DEFINICIÓN',
+    area: 'tecnica', substat: 'remate',
+    timerPreset: 0, timerMode: 'stopwatch',
+    desc: 'Mide tu capacidad de definición. 10 remates desde 16 metros a distintos ángulos y zonas del arco.',
+    protocol: [
+      'Marca una portería o pared con zonas (izquierda, centro, derecha)',
+      'Colócate a 16 metros: 3 remates desde el centro, 4 desde la izquierda, 3 desde la derecha',
+      'Cada remate debe ir al arco (o pared marcada)',
+      'Alterna potencia y colocación — no solo fuerza',
+      'Cuenta los goles o blancos acertados sobre 10'
+    ],
+    inputType: 'integer',
+    inputUnit: 'goles',
+    inputLabel: 'Goles o aciertos sobre 10 intentos (ej: 7)',
+    inputMin: 0, inputMax: 10, inputStep: 1,
+    references: [
+      { label:'ÉLITE +90', range:'9 – 10 / 10', cls:'ref-elite' },
+      { label:'PROFESIONAL', range:'7 – 8 / 10', cls:'ref-pro' },
+      { label:'SEMIPRO', range:'5 – 6 / 10', cls:'ref-avg' },
+      { label:'A MEJORAR', range:'< 5 / 10', cls:'ref-weak' }
+    ],
+    scoreFormula: (v) => {
+      if (v >= 9)  return 95; if (v >= 7) return 85;
+      if (v >= 5)  return 70; if (v >= 3) return 55; return 30;
+    },
+    affectedStats: { tecnica: ['remate','toque'] }
+  },
+  {
+    id: 'fuerza_tren_inf',
+    icon: '💪', name: 'SENTADILLAS EXPLOSIVAS',
+    category: 'FÍSICO — FUERZA Y POTENCIA',
+    area: 'fisico', substat: 'fuerza',
+    timerPreset: 60, timerMode: 'countdown',
+    desc: 'Mide tu fuerza funcional y resistencia de tren inferior. Máximo de sentadillas explosivas en 60 segundos.',
+    protocol: [
+      'Posición de sentadilla: pies a ancho de hombros, espalda recta',
+      'Baja hasta los 90° de rodilla y explota hacia arriba',
+      'Mantén el ritmo durante 60 segundos completos',
+      'Cuenta solo las repeticiones con buena técnica',
+      'Ingresa el total de repeticiones completas'
+    ],
+    inputType: 'integer',
+    inputUnit: 'repeticiones',
+    inputLabel: 'Repeticiones en 60 segundos (ej: 32)',
+    inputMin: 5, inputMax: 80, inputStep: 1,
+    references: [
+      { label:'ÉLITE +90', range:'> 50 reps', cls:'ref-elite' },
+      { label:'PROFESIONAL', range:'40 – 50 reps', cls:'ref-pro' },
+      { label:'SEMIPRO', range:'28 – 40 reps', cls:'ref-avg' },
+      { label:'A MEJORAR', range:'< 28 reps', cls:'ref-weak' }
+    ],
+    scoreFormula: (v) => {
+      if (v >= 50) return 95; if (v >= 42) return 85;
+      if (v >= 34) return 75; if (v >= 26) return 60;
+      if (v >= 18) return 45; return 25;
+    },
+    affectedStats: { fisico: ['fuerza','salto','agilidad'] }
+  }
+];
+
+const ASSESS_AREA_ICONS = { tecnica:'🎯', fisico:'💪', tactica:'🗺️', mental:'🧘' };
+
+function getAssessScoreClass(score) {
+  if (score >= 85) return 'elite';
+  if (score >= 70) return 'good';
+  if (score >= 55) return 'avg';
+  return 'weak';
+}
+
+function applyAssessmentToStats(test, score) {
+  // Update all affected sub-stats
+  Object.entries(test.affectedStats).forEach(([area, subs]) => {
+    subs.forEach(sub => {
+      if (subStats[area] && subStats[area][sub] !== undefined) {
+        // Blend: 70% assessment result, 30% existing value
+        const existing = subStats[area][sub];
+        subStats[area][sub] = Math.round(score * 0.7 + existing * 0.3);
+      }
+    });
+  });
+
+  // Recalculate area averages
+  Object.entries(subStats).forEach(([area, subs]) => {
+    const vals = Object.values(subs);
+    stats[area] = Math.round(vals.reduce((a,b)=>a+b,0) / vals.length);
+  });
+}
+
+function recalcAllStatsFromAssessments() {
+  // Blend all completed assessments into stats progressively
+  ASSESSMENT_TESTS.forEach(test => {
+    const res = assessmentResults[test.id];
+    if (res) applyAssessmentToStats(test, res.score);
+  });
+}
+
+function renderAssessment() {
+  const done = Object.keys(assessmentResults).length;
+  const total = ASSESSMENT_TESTS.length;
+  const pct = Math.round(done / total * 100);
+
+  document.getElementById('assess-badge').textContent = `${done} / ${total} completadas`;
+  document.getElementById('assess-progress-fill').style.width = pct + '%';
+
+  // Area scores summary
+  const areaScores = {};
+  ASSESSMENT_TESTS.forEach(t => {
+    if (assessmentResults[t.id]) {
+      if (!areaScores[t.area]) areaScores[t.area] = [];
+      areaScores[t.area].push(assessmentResults[t.id].score);
+    }
+  });
+  document.getElementById('assess-area-scores').innerHTML = ['tecnica','fisico','tactica','mental'].map(area => {
+    const scores = areaScores[area] || [];
+    const avg = scores.length ? Math.round(scores.reduce((a,b)=>a+b,0)/scores.length) : null;
+    return `<div style="text-align:center">
+      <div style="font-size:24px;margin-bottom:4px">${ASSESS_AREA_ICONS[area]}</div>
+      <div style="font-family:var(--font-display);font-size:${avg?'28px':'16px'};color:${avg?'var(--gold)':'var(--text3)'}">
+        ${avg !== null ? avg : '—'}
+      </div>
+      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3);letter-spacing:1px">${area.toUpperCase()}</div>
+    </div>`;
+  }).join('');
+
+  // Test cards
+  document.getElementById('assess-tests-container').innerHTML = ASSESSMENT_TESTS.map(test => {
+    const res = assessmentResults[test.id];
+    const cls = res ? getAssessScoreClass(res.score) : '';
+    return `
+      <div class="assess-test-card ${res ? 'completed' : ''}">
+        <div class="assess-header">
+          <div class="assess-icon">${test.icon}</div>
+          <div class="assess-info">
+            <div class="assess-name">${test.name}</div>
+            <div class="assess-category">${test.category}</div>
+          </div>
+          <div class="assess-status-icon">${res ? '✅' : '⏳'}</div>
+        </div>
+        <div class="assess-desc">${test.desc}</div>
+        <div class="assess-ref-row">
+          ${test.references.map(r => `<div class="assess-ref-chip ${r.cls}">${r.label}: ${r.range}</div>`).join('')}
+        </div>
+        ${res ? `
+          <div class="assess-result-row">
+            <div>
+              <div class="assess-result-val ${cls}">${res.value}</div>
+              <div class="assess-result-unit">${test.inputUnit.toUpperCase()}</div>
+            </div>
+            <div style="flex:1;padding-left:12px">
+              <div class="assess-result-label">PUNTUACIÓN: <strong style="color:var(--gold)">${res.score}/100</strong></div>
+              <div class="prog-track" style="margin-top:6px;height:6px">
+                <div class="prog-fill" style="width:${res.score}%;background:${res.score>=85?'var(--gold)':res.score>=70?'var(--green)':res.score>=55?'var(--blue)':'var(--red)'}"></div>
+              </div>
+              <div class="assess-result-label" style="margin-top:4px">Última prueba: ${res.ts}</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="btn-redo" onclick="openAssessModal('${test.id}')">↺ REPETIR PRUEBA</button>
+          </div>
+        ` : `
+          <button class="btn-assess" onclick="openAssessModal('${test.id}')">▶ INICIAR PRUEBA</button>
+        `}
+      </div>
+    `;
+  }).join('');
+
+  // Show completion banner
+  if (done === total) {
+    document.getElementById('assess-result-banner').style.display = 'block';
+  }
+}
+
+function openAssessModal(testId) {
+  const test = ASSESSMENT_TESTS.find(t => t.id === testId);
+  if (!test) return;
+  currentAssessTest = test;
+
+  document.getElementById('amodal-icon').textContent = test.icon;
+  document.getElementById('amodal-title').textContent = test.name;
+  document.getElementById('amodal-desc').textContent = test.desc;
+  document.getElementById('amodal-steps').innerHTML = test.protocol.map((s,i) => `
+    <div class="modal-step">
+      <div class="step-num">${i+1}</div>
+      <div>${s}</div>
+    </div>`).join('');
+
+  // Timer presets
+  const presetSecs = test.timerPreset;
+  if (presetSecs > 0) {
+    document.getElementById('amodal-presets').innerHTML = `<button class="preset-btn" onclick="setPreset(${presetSecs})">${presetSecs >= 60 ? Math.floor(presetSecs/60)+' min' : presetSecs+'s'}</button>`;
+    timerReset();
+    setTimerMode(test.timerMode);
+    timerSeconds = presetSecs; timerTotal = presetSecs;
+    updateTimerDisplay();
+    document.getElementById('amodal-timer-wrap').style.display = 'block';
+  } else {
+    timerReset();
+    setTimerMode('stopwatch');
+    document.getElementById('amodal-timer-wrap').style.display = 'block';
+  }
+
+  // Input field
+  const prev = assessmentResults[testId];
+  document.getElementById('amodal-input-wrap').innerHTML = `
+    <div class="assess-input-group">
+      <label>${test.inputLabel}</label>
+      <div class="assess-num-input">
+        <input type="number" id="assess-input-val" min="${test.inputMin}" max="${test.inputMax}" step="${test.inputStep}"
+          placeholder="${test.inputType==='decimal'?'0.0':'0'}" value="${prev ? prev.value : ''}"
+          oninput="onAssessInputChange()" onchange="onAssessInputChange()">
+        <div class="unit-label">${test.inputUnit.toUpperCase()}</div>
+      </div>
+      <div class="assess-range-preview" id="assess-preview">Ingresa tu resultado para ver tu nivel</div>
+    </div>`;
+
+  document.getElementById('amodal-submit').disabled = !prev;
+  if (prev) onAssessInputChange();
+
+  document.getElementById('assess-modal').classList.add('open');
+}
+
+function onAssessInputChange() {
+  const test = currentAssessTest;
+  if (!test) return;
+  const raw = document.getElementById('assess-input-val').value;
+  const v = test.inputType === 'decimal' ? parseFloat(raw) : parseInt(raw);
+  const preview = document.getElementById('assess-preview');
+  const btn = document.getElementById('amodal-submit');
+  if (!raw || isNaN(v) || v < test.inputMin || v > test.inputMax) {
+    preview.innerHTML = `Rango válido: ${test.inputMin} – ${test.inputMax} ${test.inputUnit}`;
+    btn.disabled = true; return;
+  }
+  const score = test.scoreFormula(v);
+  const cls = getAssessScoreClass(score);
+  const clsColors = { elite:'var(--gold)', good:'var(--green)', avg:'var(--blue)', weak:'var(--red)' };
+  const labels = { elite:'ÉLITE', good:'PROFESIONAL', avg:'SEMIPRO', weak:'A MEJORAR' };
+  preview.innerHTML = `Puntuación estimada: <span style="color:${clsColors[cls]};font-size:18px">${score}/100 — ${labels[cls]}</span>`;
+  btn.disabled = false;
+}
+
+function submitAssessment() {
+  const test = currentAssessTest;
+  if (!test) return;
+  const raw = document.getElementById('assess-input-val').value;
+  const v = test.inputType === 'decimal' ? parseFloat(raw) : parseInt(raw);
+  if (isNaN(v)) return;
+  const score = test.scoreFormula(v);
+  const ts = new Date().toLocaleDateString('es-MX');
+
+  assessmentResults[test.id] = { value: v, score, ts };
+
+  // Apply to stats
+  applyAssessmentToStats(test, score);
+
+  // XP reward
+  const xpGain = 60 + score;
+  xp += xpGain;
+  level = Math.floor(xp / 500) + 1;
+
+  closeAssessModal();
+  saveProgress();
+  renderAssessment();
+  renderDashboard();
+  renderStats();
+  renderDNA();
+  checkMedals();
+  updateMedalCountBadge();
+  showToast('🔬', `Prueba registrada · Puntuación: ${score}/100 · +${xpGain} XP`);
+}
+
+function closeAssessModal() {
+  timerReset();
+  document.getElementById('assess-modal').classList.remove('open');
+  currentAssessTest = null;
+}
+
+// ════════════════════════════════
+//  PLAN 30/60/90 DÍAS
+// ════════════════════════════════
+const PLAN_WEEKS = [
+  // FASE 1 — BASE (semanas 1-4)
+  { w:1,  phase:1, title:'Diagnóstico y Base',       focus:'EVALUACIÓN INICIAL · TÉCNICA BÁSICA',      goal:'Completa todas las pruebas físicas y 4 desafíos',  milestone:'m_eval_done' },
+  { w:2,  phase:1, title:'Fundamentos Técnicos',     focus:'CONTROL · PASE CORTO · TOQUE',             goal:'Sprint, malabarismo y pase completados',           milestone:'m_tech_base' },
+  { w:3,  phase:1, title:'Condición Física Base',    focus:'RESISTENCIA · FUERZA FUNCIONAL',           goal:'Test Cooper + circuito de fuerza',                 milestone:'m_fis_base'  },
+  { w:4,  phase:1, title:'Revisión de Fase 1',       focus:'REPITE TUS 3 MEJORES DESAFÍOS',            goal:'Mejora al menos 1 resultado de semana 1',          milestone:'m_phase1'    },
+  // FASE 2 — DESARROLLO (semanas 5-8)
+  { w:5,  phase:2, title:'Velocidad y Explosividad', focus:'SPRINT · SALTO · PLIOMETRÍA',              goal:'Sprint <4.5 seg o salto >40cm',                    milestone:'m_speed'     },
+  { w:6,  phase:2, title:'Técnica Avanzada',         focus:'REGATE · DEFINICIÓN · CABECEO',            goal:'Slalom + remate + cabeceo completados',            milestone:'m_tech_adv'  },
+  { w:7,  phase:2, title:'Táctica y Lectura',        focus:'POSICIÓN · VISIÓN · TRANSICIÓN',           goal:'3 desafíos tácticos terminados',                   milestone:'m_tactics'   },
+  { w:8,  phase:2, title:'Revisión de Fase 2',       focus:'EVALUACIÓN COMPLETA REPETIDA',             goal:'Score global ≥60 en todas las áreas',              milestone:'m_phase2'    },
+  // FASE 3 — ELITE (semanas 9-12)
+  { w:9,  phase:3, title:'Intensidad Máxima',        focus:'TODOS LOS DESAFÍOS A MÁXIMO',              goal:'10 desafíos completados con score ≥7',             milestone:'m_intense'   },
+  { w:10, phase:3, title:'Especialización',          focus:'ARMA SECRETA: DOMINA TU PUNTO FUERTE',     goal:'Sub-stat principal ≥80',                           milestone:'m_specialize'},
+  { w:11, phase:3, title:'Simulación de Partido',    focus:'CIRCUITO COMPLETO EN TIEMPO REAL',         goal:'Completa 5 desafíos en una sola sesión',           milestone:'m_simulate'  },
+  { w:12, phase:3, title:'EVALUACIÓN FINAL',         focus:'REPITE TODO · COMPARA CON SEMANA 1',       goal:'Mejora en ≥3 áreas respecto al inicio',            milestone:'m_final'     },
+];
+
+const MILESTONES = {
+  m_eval_done:  { icon:'🔬', name:'Diagnóstico Completo' },
+  m_tech_base:  { icon:'⚽', name:'Técnico Fundamentos'  },
+  m_fis_base:   { icon:'💪', name:'Base Física'          },
+  m_phase1:     { icon:'🥉', name:'Fase 1 Superada'      },
+  m_speed:      { icon:'💨', name:'Velocista'            },
+  m_tech_adv:   { icon:'🌟', name:'Técnico Avanzado'     },
+  m_tactics:    { icon:'🗺️', name:'Táctico'             },
+  m_phase2:     { icon:'🥈', name:'Fase 2 Superada'      },
+  m_intense:    { icon:'🔥', name:'Intensidad Élite'     },
+  m_specialize: { icon:'⚔️', name:'Especialista'        },
+  m_simulate:   { icon:'🏟️', name:'Simulador de Partido'},
+  m_final:      { icon:'🏆', name:'Protocolo Élite'      },
+};
+
+function renderPlan() {
+  const totalDone = completedWeeks.length;
+  const currentW  = Math.min(12, totalDone + 1);
+
+  // Phase cards
+  document.getElementById('plan-phase-cards').innerHTML = [
+    { n:1, label:'30 DÍAS', name:'BASE', color:'var(--blue)', weeks:'1-4', desc:'Diagnóstico, fundamentos técnicos y condición física inicial.' },
+    { n:2, label:'60 DÍAS', name:'DESARROLLO', color:'var(--gold)', weeks:'5-8', desc:'Velocidad, técnica avanzada, táctica y lectura de juego.' },
+    { n:3, label:'90 DÍAS', name:'ÉLITE', color:'var(--green)', weeks:'9-12', desc:'Intensidad máxima, especialización y simulación de partido real.' },
+  ].map(p => {
+    const wDone = completedWeeks.filter(w => PLAN_WEEKS.find(pw=>pw.w===w&&pw.phase===p.n)).length;
+    return `<div class="phase-card p${p.n}">
+      <div class="phase-num" style="color:${p.color}">${p.label}</div>
+      <div class="phase-name">${p.name}</div>
+      <div class="phase-desc">${p.desc}</div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:${p.color};margin-top:8px">${wDone}/4 semanas</div>
+    </div>`;
+  }).join('');
+
+  // Milestones row
+  const msHtml = `<div style="margin-bottom:16px"><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text3);margin-bottom:8px">HITOS DESBLOQUEADOS</div>
+    <div>${Object.entries(MILESTONES).map(([id,m])=>{
+      const done = milestonesDone.includes(id);
+      return `<span class="milestone-badge ${done?'ms-done':'ms-locked'}">${m.icon} ${m.name}</span>`;
+    }).join('')}</div></div>`;
+
+  // Week rows
+  const weeksHtml = PLAN_WEEKS.map(w => {
+    const isDone   = completedWeeks.includes(w.w);
+    const isActive = w.w === currentW;
+    const cls = isDone ? 'done-week' : isActive ? 'active-week' : '';
+    return `<div class="week-row ${cls}" onclick="toggleWeekDone(${w.w})">
+      <div class="week-num" style="color:${w.phase===1?'var(--blue)':w.phase===2?'var(--gold)':'var(--green)'}">${w.w}</div>
+      <div class="week-info">
+        <div class="week-title">${w.title}</div>
+        <div class="week-focus">${w.focus}</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:3px">🎯 ${w.goal}</div>
+      </div>
+      <div class="week-status">${isDone?'✅':isActive?'▶️':'⏳'}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('plan-weeks-container').innerHTML = msHtml + weeksHtml;
+}
+
+function toggleWeekDone(wNum) {
+  if (completedWeeks.includes(wNum)) {
+    completedWeeks = completedWeeks.filter(w=>w!==wNum);
+  } else {
+    completedWeeks.push(wNum);
+    // Award XP
+    xp += 120; level = Math.floor(xp/500)+1;
+    // Check milestone
+    const weekData = PLAN_WEEKS.find(w=>w.w===wNum);
+    if (weekData && !milestonesDone.includes(weekData.milestone)) {
+      milestonesDone.push(weekData.milestone);
+      const ms = MILESTONES[weekData.milestone];
+      if (ms) showToast('🏅', `Hito desbloqueado: ${ms.icon} ${ms.name}`);
+    }
+  }
+  saveProgress();
+  renderPlan();
+  renderDashboard();
+  updateMedalCountBadge();
+}
+
+// ════════════════════════════════
+//  NUTRICIÓN
+// ════════════════════════════════
+function calcNutrition() {
+  const w = parseFloat(player.weight) || 75;
+  const h = parseFloat(player.height) || 178;
+  const a = parseInt(player.age) || 22;
+  const pos = player.position || 'delantero';
+  const days = parseInt(player.days) || 5;
+
+  // Harris-Benedict + factor actividad
+  const bmr = 10*w + 6.25*h - 5*a + 5;
+  const actFactor = days >= 6 ? 1.9 : days >= 5 ? 1.75 : 1.55;
+  const tdee = Math.round(bmr * actFactor);
+
+  // Position adjustments
+  const posAdj = { portero:-100, defensa:0, mediocampista:50, delantero:100 };
+  const kcal = tdee + (posAdj[pos]||0);
+
+  const protein = Math.round(w * 1.8);  // g
+  const fat     = Math.round(kcal * 0.25 / 9); // g
+  const carbs   = Math.round((kcal - protein*4 - fat*9) / 4); // g
+
+  return { kcal, protein, fat, carbs, w, pos };
+}
+
+const MEAL_PLANS = {
+  delantero: [
+    { time:'07:00 — DESAYUNO', title:'Carga de Energía', kcalPct:25,
+      items:'🥣 Avena con plátano y miel · 🥚 3 huevos revueltos · 🍊 Jugo de naranja natural · ☕ Café o té' },
+    { time:'10:00 — PRE-ENTRENAMIENTO', title:'Activación Rápida', kcalPct:10,
+      items:'🍌 1-2 plátanos · 🥜 Puño de nueces · 💧 500ml agua' },
+    { time:'13:00 — COMIDA PRINCIPAL', title:'Recuperación Post-Entreno', kcalPct:35,
+      items:'🍗 150g pollo a la plancha · 🍚 1 taza arroz integral · 🥦 Verduras al vapor · 🥗 Ensalada verde' },
+    { time:'16:30 — MERIENDA', title:'Mantenimiento', kcalPct:10,
+      items:'🫙 Yogur griego con granola · 🍎 1 manzana o pera' },
+    { time:'20:00 — CENA', title:'Recuperación Nocturna', kcalPct:20,
+      items:'🐟 150g salmón o atún · 🍠 Camote asado · 🥬 Ensalada espinacas · 🫐 Frutos del bosque' },
+  ],
+  portero: [
+    { time:'07:00 — DESAYUNO', title:'Fuerza Matutina', kcalPct:25,
+      items:'🍳 4 huevos (2 enteros+2 claras) · 🍞 Pan integral · 🍓 Fruta fresca · 🥛 Leche descremada' },
+    { time:'10:30 — PRE-ENTRENO', title:'Energía Rápida', kcalPct:10,
+      items:'🍌 Batido de plátano + proteína · 💧 500ml agua con electrolitos' },
+    { time:'13:30 — COMIDA', title:'Masa Muscular', kcalPct:35,
+      items:'🥩 200g carne magra · 🍝 Pasta integral · 🫑 Pimientos asados · 🧀 Queso cottage' },
+    { time:'17:00 — MERIENDA', title:'Sostenimiento', kcalPct:10,
+      items:'🥜 Mix de frutos secos · 🫙 Yogur proteico' },
+    { time:'20:30 — CENA', title:'Recuperación', kcalPct:20,
+      items:'🐔 Pechuga de pavo · 🥦 Brócoli al vapor · 🍚 Arroz basmati · 🫐 Frutos rojos' },
+  ],
+};
+MEAL_PLANS.defensa = MEAL_PLANS.portero;
+MEAL_PLANS.mediocampista = MEAL_PLANS.delantero;
+
+function renderNutrition() {
+  const n = calcNutrition();
+  const meals = MEAL_PLANS[n.pos] || MEAL_PLANS.delantero;
+  const hydration = Math.round(n.w * 0.045 * 10) / 10;
+
+  document.getElementById('nutrition-content').innerHTML = `
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-header"><div class="card-title">TUS CALORÍAS DIARIAS</div><div class="card-badge badge-gold">${n.kcal} kcal</div></div>
+      <div class="macro-ring-wrap">
+        <div class="macro-circle"><div class="macro-val" style="color:var(--red)">${n.protein}g</div><div class="macro-lbl">PROTEÍNA</div></div>
+        <div style="text-align:center">
+          <div style="font-family:var(--font-display);font-size:52px;color:var(--gold);line-height:1">${n.kcal}</div>
+          <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3);letter-spacing:2px">KCAL / DÍA</div>
+        </div>
+        <div class="macro-circle"><div class="macro-val" style="color:var(--gold)">${n.carbs}g</div><div class="macro-lbl">CARBOS</div></div>
+        <div class="macro-circle"><div class="macro-val" style="color:var(--blue)">${n.fat}g</div><div class="macro-lbl">GRASAS</div></div>
+      </div>
+      <div style="margin-top:8px">
+        <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:11px;color:var(--text2);margin-bottom:6px">
+          <span>💧 Hidratación diaria recomendada</span><span style="color:var(--blue)">${hydration}L</span>
+        </div>
+        <div class="hydration-bar"><div class="hydration-fill" style="width:72%"></div></div>
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3);margin-top:4px">Aumenta 500ml por cada hora de entrenamiento intenso</div>
+      </div>
+    </div>
+
+    <div class="section-title" style="font-size:20px;margin-bottom:12px">PLAN DE COMIDAS</div>
+    ${meals.map(m=>{
+      const mkcal = Math.round(n.kcal * m.kcalPct / 100);
+      return `<div class="meal-card">
+        <div class="meal-time">${m.time}</div>
+        <div class="meal-title">${m.title}</div>
+        <div class="meal-items">${m.items}</div>
+        <div class="meal-kcal">~${mkcal} kcal · ${m.kcalPct}% del total diario</div>
+      </div>`;
+    }).join('')}
+
+    <div class="section-title" style="font-size:20px;margin:16px 0 12px">TIPS DE NUTRICIÓN ÉLITE</div>
+    ${[
+      '⏱️ Come los carbohidratos complejos 2-3 horas antes de entrenar para máxima energía disponible.',
+      '🥩 Consume proteína dentro de los 30-45 minutos post-entrenamiento para maximizar la síntesis muscular.',
+      '🚫 Evita comida ultraprocesada, alcohol y exceso de azúcar — degradan recuperación y rendimiento en 24-48h.',
+      '🍌 Si entrenas más de 90 minutos, toma un plátano o gel energético a mitad del entrenamiento.',
+      '😴 La nutrición nocturna importa: caseína (yogur, queso cottage) antes de dormir ayuda recuperación muscular.',
+    ].map(t=>`<div class="nutrition-tip">${t}</div>`).join('')}
+  `;
+}
+
+// ════════════════════════════════
+//  COMPARATIVA ÉLITE
+// ════════════════════════════════
+const ELITE_PLAYERS = {
+  delantero: [
+    { name:'Kylian Mbappé',   flag:'🇫🇷', club:'Real Madrid',   emoji:'⚡', stats:{ velocidad:99, regate:92, remate:94, toque:89, resistencia:88, decision:90 } },
+    { name:'Erling Haaland',  flag:'🇳🇴', club:'Man. City',     emoji:'💪', stats:{ velocidad:89, regate:80, remate:98, toque:84, resistencia:90, decision:88 } },
+    { name:'Lamine Yamal',    flag:'🇪🇸', club:'FC Barcelona',  emoji:'🌟', stats:{ velocidad:91, regate:95, remate:84, toque:94, resistencia:83, decision:89 } },
+  ],
+  mediocampista: [
+    { name:'Jude Bellingham', flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿', club:'Real Madrid',   emoji:'👑', stats:{ pase:88, vision:91, regate:87, resistencia:92, decision:93, liderazgo:90 } },
+    { name:'Pedri',           flag:'🇪🇸', club:'FC Barcelona',  emoji:'🎯', stats:{ pase:92, vision:95, regate:88, resistencia:85, decision:91, liderazgo:83 } },
+    { name:'Kevin De Bruyne', flag:'🇧🇪', club:'Man. City',     emoji:'📐', stats:{ pase:97, vision:98, regate:84, resistencia:86, decision:95, liderazgo:88 } },
+  ],
+  defensa: [
+    { name:'Virgil van Dijk', flag:'🇳🇱', club:'Liverpool',     emoji:'🛡️', stats:{ marcaje:95, cabeceo:94, fuerza:92, velocidad:84, decision:91, liderazgo:93 } },
+    { name:'Rúben Dias',      flag:'🇵🇹', club:'Man. City',     emoji:'🏰', stats:{ marcaje:93, cabeceo:88, fuerza:89, velocidad:82, decision:92, liderazgo:90 } },
+    { name:'Alexia Putell',   flag:'🌍', club:'Top Europa',     emoji:'💎', stats:{ marcaje:88, cabeceo:82, fuerza:85, velocidad:86, decision:89, liderazgo:87 } },
+  ],
+  portero: [
+    { name:'Alisson Becker',  flag:'🇧🇷', club:'Liverpool',     emoji:'🧤', stats:{ paradas:95, reflejos:92, salidas:90, saques:88, decision:91, comunicacion:88 } },
+    { name:'Thibaut Courtois',flag:'🇧🇪', club:'Real Madrid',   emoji:'🦁', stats:{ paradas:94, reflejos:96, salidas:86, saques:85, decision:93, comunicacion:84 } },
+    { name:'Manuel Neuer',    flag:'🇩🇪', club:'Bayern',        emoji:'🌊', stats:{ paradas:92, reflejos:90, salidas:97, saques:92, decision:95, comunicacion:92 } },
+  ],
+};
+
+function getEliteCompareStats() {
+  const pos = player.position || 'delantero';
+  const subs = subStats[Object.keys(subStats)[0]] || {};
+  // pick 6 most relevant sub-stats
+  const allSubs = Object.entries(Object.assign({}, ...Object.values(subStats)));
+  return allSubs.sort((a,b)=>b[1]-a[1]).slice(0,6).map(([k,v])=>({ key:k, you:v }));
+}
+
+function renderElite() {
+  const pos = player.position || 'delantero';
+  const players = ELITE_PLAYERS[pos] || ELITE_PLAYERS.delantero;
+  const compareStats = getEliteCompareStats();
+
+  const overallYou = getOverallScore();
+
+  document.getElementById('elite-content').innerHTML = `
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-header">
+        <div class="card-title">TU SCORE GLOBAL</div>
+        <div class="card-badge badge-gold">${overallYou}/100</div>
+      </div>
+      <div class="prog-track" style="height:10px;margin-bottom:8px">
+        <div class="prog-fill" style="width:${overallYou}%"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:11px;color:var(--text3)">
+        <span>0 — Principiante</span><span style="color:var(--gold)">TÚ: ${overallYou}</span><span>100 — Élite Mundial</span>
+      </div>
+    </div>
+
+    ${players.map(pro=>{
+      const proOverall = Math.round(Object.values(pro.stats).reduce((a,b)=>a+b,0)/Object.values(pro.stats).length);
+      const statKeys = Object.keys(pro.stats);
+      return `<div class="card" style="margin-bottom:16px">
+        <div class="elite-player-row" style="flex-wrap:wrap;padding:0;background:none;border:none">
+          <div class="elite-avatar" style="background:var(--card2)">${pro.emoji}</div>
+          <div>
+            <div class="elite-name">${pro.name} ${pro.flag}</div>
+            <div class="elite-club">${pro.club} · ${proOverall}/100 GLOBAL</div>
+          </div>
+        </div>
+        <div style="margin-top:14px">
+          ${statKeys.map(stat=>{
+            const proVal = pro.stats[stat];
+            const youVal = compareStats.find(s=>s.key===stat)?.you ?? getOverallScore();
+            const diff = youVal - proVal;
+            const diffCls = diff>=0?'gap-pos':diff>=-10?'gap-zero':'gap-neg';
+            const diffTxt = diff>=0?`+${diff}`:String(diff);
+            return `<div class="elite-compare-row">
+              <div class="elite-stat-lbl">${stat.toUpperCase()}</div>
+              <div class="elite-you-val">${youVal}</div>
+              <div class="elite-track">
+                <div class="elite-fill-pro" style="width:${proVal}%"></div>
+                <div class="elite-fill-you" style="width:${youVal}%;z-index:1"></div>
+              </div>
+              <div class="elite-pro-val">${proVal}</div>
+              <div class="gap-chip ${diffCls}">${diffTxt}</div>
+            </div>`;
+          }).join('')}
+        </div>
+      </div>`;
+    }).join('')}
+    <div style="font-family:var(--font-mono);font-size:11px;color:var(--text3);text-align:center;padding:8px">
+      🟡 TÚ &nbsp;&nbsp; 🔵 JUGADOR PROFESIONAL
+    </div>
+  `;
+}
+
+// ════════════════════════════════
+//  TARJETA FIFA
+// ════════════════════════════════
+const POS_ABBR = { delantero:'DEL', mediocampista:'MED', defensa:'DEF', portero:'POR' };
+const POS_EMOJI_MAP = { delantero:'🇲🇽', mediocampista:'🇲🇽', defensa:'🇲🇽', portero:'🇲🇽' };
+
+function getFifaStats() {
+  const pos = player.position || 'delantero';
+  const allSubs = Object.assign({}, ...Object.values(subStats));
+  const entries = Object.entries(allSubs).sort((a,b)=>b[1]-a[1]);
+  const top6 = entries.slice(0,6);
+  const shortNames = { toque:'TOQ', pase:'PAS', regate:'REG', remate:'REM', cabeceo:'CAB',
+    velocidad:'VEL', resistencia:'RES', fuerza:'FUE', salto:'SAL', agilidad:'AGI',
+    posicion:'POS', presion:'PRE', contragolpe:'CTR', espacios:'ESP', lectura:'LEC',
+    concentracion:'CON', liderazgo:'LID', presionMental:'MEN', actitud:'ACT', decision:'DEC',
+    reflejos:'REF', paradas:'PAR', marcaje:'MAR', recuperacion:'REC', visionJuego:'VIS',
+    saques:'SAQ', comunicacion:'COM' };
+  return top6.map(([k,v])=>({ name: shortNames[k]||k.substring(0,3).toUpperCase(), val:v }));
+}
+
+function renderCard() {
+  const pos = player.position || 'delantero';
+  const rating = getOverallScore();
+  const fifaStats = getFifaStats();
+  const posAbbr = POS_ABBR[pos] || 'JUG';
+
+  document.getElementById('card-content').innerHTML = `
+    <div class="fifa-card" id="the-fifa-card">
+      <div class="fifa-top">
+        <div>
+          <div class="fifa-rating">${rating}</div>
+          <div class="fifa-pos">${posAbbr}</div>
+        </div>
+        <div class="fifa-pos-nation">
+          <div class="fifa-flag">🇲🇽</div>
+          <div style="font-family:var(--font-mono);font-size:9px;color:rgba(255,215,0,0.4);letter-spacing:1px;margin-top:4px">STRIKER ELITE</div>
+        </div>
+      </div>
+      <div class="fifa-avatar-wrap">
+        <div class="fifa-avatar-circle">${player.name?.[0]?.toUpperCase()||'?'}</div>
+      </div>
+      <div class="fifa-name">${(player.name||'JUGADOR').toUpperCase()}</div>
+      <div class="fifa-club">${(POSITION_CONFIG[pos]?.name||'FUTBOLISTA').toUpperCase()} · ${player.height||'—'}CM · ${player.weight||'—'}KG</div>
+      <div class="fifa-divider"></div>
+      <div class="fifa-stats-grid">
+        ${fifaStats.map(s=>`<div class="fifa-stat">
+          <div class="fifa-stat-val">${s.val}</div>
+          <div class="fifa-stat-name">${s.name}</div>
+        </div>`).join('')}
+      </div>
+      <div class="fifa-footer">STRIKER ELITE · SISTEMA DE ENTRENAMIENTO · ${new Date().getFullYear()}</div>
+    </div>
+    <div style="text-align:center;max-width:320px">
+      <p style="font-size:13px;color:var(--text2);margin-bottom:12px">Tu rating se actualiza automáticamente con cada desafío y evaluación completada.</p>
+      <button class="btn-share-card" onclick="shareCard()">📲 COMPARTIR TARJETA</button>
+    </div>
+  `;
+}
+
+function shareCard() {
+  const rating = getOverallScore();
+  const pos = POSITION_CONFIG[player.position||'delantero']?.name || 'JUGADOR';
+  const text = `🏆 Mi tarjeta STRIKER ELITE:\n⚽ ${player.name?.toUpperCase()||'JUGADOR'}\n${pos} · Rating: ${rating}/100\n\nGenerada en: https://leonardo182019-jpg.github.io/striker-elite-/`;
+  if (navigator.share) {
+    navigator.share({ title:'Mi tarjeta Striker Elite', text }).catch(()=>{});
+  } else {
+    navigator.clipboard?.writeText(text).then(()=> showToast('📋','¡Texto copiado al portapapeles!')).catch(()=>{});
+  }
+}
+
+// ════════════════════════════════
+//  DIARIO MENTAL
+// ════════════════════════════════
+const MOODS = [
+  { emoji:'😤', label:'Motivado',   val:5 },
+  { emoji:'😊', label:'Bien',       val:4 },
+  { emoji:'😐', label:'Normal',     val:3 },
+  { emoji:'😔', label:'Cansado',    val:2 },
+  { emoji:'😠', label:'Frustrado',  val:1 },
+];
+let selectedMood = null;
+let selectedEnergy = 7;
+
+function renderJournal() {
+  const entries = [...journalEntries].reverse().slice(0,20);
+  const hasEntries = entries.length > 0;
+
+  // Pattern analysis
+  let patternHtml = '';
+  if (journalEntries.length >= 3) {
+    const avgMood   = (journalEntries.reduce((a,e)=>a+e.mood,0)/journalEntries.length).toFixed(1);
+    const avgEnergy = (journalEntries.reduce((a,e)=>a+e.energy,0)/journalEntries.length).toFixed(1);
+    const bestDay   = journalEntries.reduce((best,e)=>e.mood>best.mood?e:best,journalEntries[0]);
+    patternHtml = `<div class="pattern-insight">
+      <div class="pattern-title">🧠 Análisis de Patrones</div>
+      <div class="pattern-text">
+        Estado de ánimo promedio: <strong style="color:var(--gold)">${avgMood}/5</strong> · Energía promedio: <strong style="color:var(--gold)">${avgEnergy}/10</strong><br>
+        Mejor día registrado: <strong>${bestDay.ts}</strong> con ánimo ${MOODS.find(m=>m.val===bestDay.mood)?.emoji||'😊'}<br>
+        ${parseFloat(avgMood)>=4?'✅ Tu estado mental es consistentemente positivo. Sigue con la rutina actual.':
+          parseFloat(avgMood)>=3?'⚠️ Estado mental variable. Revisa tu rutina de descanso y recuperación.':
+          '🔴 Estado mental bajo. Considera descanso adicional y habla con tu entrenador.'}
+      </div>
+    </div>`;
+  }
+
+  document.getElementById('journal-content').innerHTML = `
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title" style="margin-bottom:16px">¿CÓMO TE SIENTES HOY?</div>
+      <div class="mood-selector" id="mood-selector">
+        ${MOODS.map(m=>`<div class="mood-btn ${selectedMood===m.val?'selected':''}" onclick="selectMood(${m.val})" title="${m.label}">${m.emoji}</div>`).join('')}
+      </div>
+      <div class="energy-slider-wrap">
+        <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:11px;color:var(--text2);margin-bottom:6px">
+          <span>NIVEL DE ENERGÍA</span><span id="energy-val" style="color:var(--gold)">${selectedEnergy}/10</span>
+        </div>
+        <input type="range" class="energy-slider" min="1" max="10" value="${selectedEnergy}" id="energy-input"
+          oninput="selectedEnergy=parseInt(this.value);document.getElementById('energy-val').textContent=selectedEnergy+'/10'">
+      </div>
+      <div class="form-group" style="margin-bottom:12px">
+        <label style="font-family:var(--font-mono);font-size:11px;letter-spacing:2px;color:var(--text2);display:block;margin-bottom:6px">NOTA DEL DÍA (OPCIONAL)</label>
+        <textarea class="journal-textarea" id="journal-note" placeholder="¿Cómo fue el entrenamiento? ¿Qué mejorarías? ¿Algo que te costó?"></textarea>
+      </div>
+      <button class="btn-primary" onclick="saveJournalEntry()" style="font-size:18px;padding:12px">REGISTRAR ENTRADA</button>
+    </div>
+
+    ${patternHtml}
+
+    ${hasEntries ? `
+      <div class="section-title" style="font-size:20px;margin:16px 0 12px">HISTORIAL</div>
+      ${entries.map(e=>{
+        const mood = MOODS.find(m=>m.val===e.mood)||MOODS[2];
+        return `<div class="journal-entry-card">
+          <div class="journal-entry-header">
+            <div class="journal-mood-icon">${mood.emoji}</div>
+            <div>
+              <div style="font-size:13px;font-weight:500">${mood.label}</div>
+              <div class="journal-entry-date">${e.ts}</div>
+            </div>
+            <div style="margin-left:auto;text-align:right">
+              <div style="font-family:var(--font-mono);font-size:11px;color:var(--blue)">Energía ${e.energy}/10</div>
+            </div>
+          </div>
+          ${e.note?`<div class="journal-entry-text">${e.note}</div>`:''}
+        </div>`;
+      }).join('')}
+    ` : '<p style="color:var(--text2);font-size:13px;text-align:center;padding:20px">Aún no tienes entradas. ¡Registra tu primer estado hoy!</p>'}
+  `;
+}
+
+function selectMood(val) {
+  selectedMood = val;
+  renderJournal();
+}
+
+function saveJournalEntry() {
+  if (!selectedMood) { showToast('⚠️','Selecciona tu estado de ánimo'); return; }
+  const note = document.getElementById('journal-note')?.value?.trim() || '';
+  journalEntries.push({
+    mood: selectedMood,
+    energy: selectedEnergy,
+    note,
+    ts: new Date().toLocaleString('es-MX',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}),
+    perfScore: getOverallScore()
+  });
+  xp += 30; level = Math.floor(xp/500)+1;
+  selectedMood = null; selectedEnergy = 7;
+  saveProgress();
+  renderJournal();
+  renderDashboard();
+  showToast('😊','Entrada registrada en tu diario mental');
 }
 
 function showToast(icon, msg) {
