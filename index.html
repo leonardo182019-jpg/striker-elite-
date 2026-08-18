@@ -333,6 +333,52 @@ select option { background: var(--card); }
 .ex-name { font-size:14px; font-weight:500; margin-bottom:3px; }
 .ex-detail { font-size:12px; color:var(--text2); font-family:var(--font-mono); }
 
+/* ── BUSCADOR POR ÁREA ── */
+.area-select { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:18px; }
+@media(max-width:700px) { .area-select { grid-template-columns:repeat(2,1fr); } }
+.area-chip {
+  background:var(--card); border:1px solid var(--border); border-radius:8px;
+  padding:14px 10px; text-align:center; cursor:pointer; transition:all 0.2s;
+}
+.area-chip:hover { border-color:var(--border2); transform:translateY(-2px); }
+.area-chip.active { border-color:var(--gold); background:var(--gold-dim); }
+.area-chip.active .area-chip-name { color:var(--gold); }
+.area-chip-icon { font-size:22px; margin-bottom:6px; }
+.area-chip-name { font-family:var(--font-display); font-size:14px; letter-spacing:1px; }
+.area-chip-count { font-size:10px; color:var(--text2); font-family:var(--font-mono); margin-top:2px; }
+.area-search-bar { margin-bottom:18px; }
+.area-search-bar input {
+  width:100%; padding:12px 16px; background:var(--card); border:1px solid var(--border);
+  border-radius:6px; color:var(--text); font-family:var(--font-body); font-size:14px; outline:none;
+}
+.area-search-bar input:focus { border-color:var(--gold); }
+.area-progress { display:flex; align-items:center; gap:12px; margin-bottom:18px; }
+.area-progress .xp-track { flex:1; }
+.area-progress-label { font-family:var(--font-mono); font-size:12px; color:var(--text2); white-space:nowrap; }
+.drill-item {
+  display:flex; align-items:flex-start; gap:14px; padding:16px;
+  background:var(--card2); border:1px solid var(--border); border-radius:8px; margin-bottom:10px;
+  transition:all 0.2s;
+}
+.drill-item.done { border-color:var(--green); background:rgba(45,198,83,0.05); }
+.drill-info { flex:1; }
+.drill-name { font-size:14px; font-weight:500; margin-bottom:3px; }
+.drill-item.done .drill-name { color:var(--green); text-decoration:line-through; opacity:0.8; }
+.drill-detail { font-size:12px; color:var(--text2); font-family:var(--font-mono); line-height:1.5; }
+.drill-tags { display:flex; gap:6px; margin-top:8px; flex-wrap:wrap; }
+.drill-tag {
+  font-family:var(--font-mono); font-size:9px; letter-spacing:1px; text-transform:uppercase;
+  padding:2px 8px; border-radius:3px; background:var(--gold-dim); color:var(--gold); border:1px solid var(--gold);
+}
+.btn-complete {
+  flex-shrink:0; width:34px; height:34px; border-radius:50%;
+  background:transparent; border:2px solid var(--border2); color:transparent;
+  cursor:pointer; transition:all 0.2s; font-size:16px; display:flex; align-items:center; justify-content:center;
+}
+.btn-complete:hover { border-color:var(--gold); }
+.drill-item.done .btn-complete { background:var(--green); border-color:var(--green); color:var(--black); }
+.area-empty { text-align:center; padding:40px 20px; color:var(--text3); font-family:var(--font-mono); font-size:13px; }
+
 /* ── STATS / ANALYTICS ── */
 .analytics-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 @media(max-width:700px) { .analytics-grid { grid-template-columns:1fr; } }
@@ -753,6 +799,89 @@ select option { background: var(--card); }
 .pattern-title { font-family:var(--font-display); font-size:18px; color:var(--gold); margin-bottom:8px; }
 .pattern-text { font-size:13px; color:var(--text2); line-height:1.6; }
 
+/* ── PLAN 30/60/90 ── */
+.phase-card { background:var(--card2); border:1px solid var(--border); border-radius:12px; padding:20px; text-align:center; transition:all 0.2s; cursor:pointer; }
+.phase-card.active { border-color:var(--gold); background:var(--gold-dim); }
+.phase-num { font-family:var(--font-display); font-size:48px; color:var(--gold); line-height:1; }
+.phase-label { font-family:var(--font-mono); font-size:10px; letter-spacing:2px; color:var(--text2); margin-top:4px; text-transform:uppercase; }
+.phase-desc { font-size:12px; color:var(--text2); margin-top:8px; line-height:1.5; }
+.week-block { background:var(--card2); border:1px solid var(--border); border-radius:10px; margin-bottom:12px; overflow:hidden; }
+.week-header { padding:14px 18px; display:flex; align-items:center; gap:12px; cursor:pointer; transition:background 0.2s; }
+.week-header:hover { background:rgba(255,255,255,0.02); }
+.week-badge { background:var(--gold-dim); border:1px solid var(--gold); color:var(--gold); font-family:var(--font-mono); font-size:11px; padding:3px 10px; border-radius:4px; flex-shrink:0; }
+.week-title { font-family:var(--font-display); font-size:17px; flex:1; }
+.week-status { font-size:18px; }
+.week-body { padding:0 18px; max-height:0; overflow:hidden; transition:max-height 0.4s ease, padding 0.3s; }
+.week-body.open { max-height:500px; padding:0 18px 18px; }
+.goal-item { display:flex; align-items:flex-start; gap:10px; padding:9px 0; border-bottom:1px solid var(--border); font-size:13px; }
+.goal-item:last-child { border-bottom:none; }
+.goal-check { width:18px; height:18px; border-radius:4px; border:1px solid var(--border); display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0; transition:all 0.15s; margin-top:1px; }
+.goal-check.done { background:var(--green); border-color:var(--green); color:#000; font-size:10px; }
+.milestone-badge { display:inline-block; background:linear-gradient(135deg,var(--gold-dim),transparent); border:1px solid var(--gold); color:var(--gold); font-family:var(--font-mono); font-size:10px; letter-spacing:1px; padding:4px 12px; border-radius:4px; margin:8px 4px 0; }
+
+/* ── NUTRICIÓN ── */
+.macro-card { background:var(--card2); border:1px solid var(--border); border-radius:10px; padding:18px; text-align:center; }
+.macro-val { font-family:var(--font-display); font-size:36px; color:var(--gold); line-height:1; }
+.macro-unit { font-family:var(--font-mono); font-size:11px; color:var(--text3); letter-spacing:1px; }
+.macro-label { font-size:12px; color:var(--text2); margin-top:4px; }
+.meal-card { background:var(--card2); border:1px solid var(--border); border-left:3px solid var(--gold); border-radius:8px; padding:14px 16px; margin-bottom:10px; }
+.meal-time { font-family:var(--font-mono); font-size:10px; color:var(--gold); letter-spacing:2px; margin-bottom:6px; }
+.meal-name { font-family:var(--font-display); font-size:16px; margin-bottom:4px; }
+.meal-detail { font-size:12px; color:var(--text2); line-height:1.5; }
+.meal-cals { font-family:var(--font-mono); font-size:11px; color:var(--text3); margin-top:4px; }
+.hydration-bar { height:16px; background:var(--border); border-radius:8px; overflow:hidden; margin:8px 0; }
+.hydration-fill { height:100%; background:linear-gradient(90deg,var(--blue),#60b3f5); border-radius:8px; transition:width 0.8s ease; }
+.tip-pill { display:inline-block; background:rgba(61,155,233,0.1); border:1px solid rgba(61,155,233,0.3); color:var(--blue); font-size:12px; padding:4px 12px; border-radius:20px; margin:4px; }
+
+/* ── TARJETA FIFA ── */
+.fifa-card { width:280px; background:linear-gradient(160deg,#1a2a1a 0%,#0d1f2d 40%,#1a1a0d 100%); border-radius:16px; padding:24px 20px; position:relative; overflow:hidden; border:2px solid var(--gold); box-shadow:0 20px 60px rgba(0,0,0,0.6); }
+.fifa-card::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 0%,rgba(245,184,0,0.15) 0%,transparent 60%); pointer-events:none; }
+.fifa-rating { font-family:var(--font-display); font-size:64px; color:var(--gold); line-height:1; margin-bottom:-4px; }
+.fifa-pos { font-family:var(--font-display); font-size:18px; color:var(--gold); letter-spacing:2px; }
+.fifa-flag { font-size:28px; margin:6px 0; }
+.fifa-name { font-family:var(--font-display); font-size:22px; color:#fff; letter-spacing:3px; text-transform:uppercase; margin:10px 0 16px; border-top:1px solid rgba(245,184,0,0.3); padding-top:10px; text-align:center; }
+.fifa-stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:4px 16px; }
+.fifa-stat-row { display:flex; align-items:center; justify-content:space-between; padding:3px 0; }
+.fifa-stat-val { font-family:var(--font-display); font-size:17px; color:var(--gold); }
+.fifa-stat-name { font-family:var(--font-mono); font-size:10px; color:rgba(255,255,255,0.6); letter-spacing:1px; }
+.fifa-club { font-family:var(--font-mono); font-size:10px; color:rgba(245,184,0,0.5); letter-spacing:2px; text-align:center; margin-top:12px; padding-top:10px; border-top:1px solid rgba(245,184,0,0.2); }
+.share-btn { padding:12px 28px; background:var(--gold); color:var(--black); border:none; border-radius:6px; cursor:pointer; font-family:var(--font-display); font-size:18px; letter-spacing:1px; transition:all 0.2s; }
+.share-btn:hover { background:var(--gold2); transform:translateY(-2px); box-shadow:0 8px 24px var(--gold-glow); }
+
+/* ── QUIZZES TÁCTICOS ── */
+.quiz-card { background:var(--card2); border:1px solid var(--border); border-radius:12px; padding:24px; margin-bottom:16px; }
+.quiz-situation { font-size:15px; color:var(--text); line-height:1.7; margin-bottom:20px; padding:16px; background:var(--black); border-radius:8px; border-left:3px solid var(--gold); }
+.quiz-options { display:flex; flex-direction:column; gap:10px; margin-bottom:16px; }
+.quiz-option { padding:14px 16px; background:var(--card); border:1px solid var(--border); border-radius:8px; cursor:pointer; font-size:14px; transition:all 0.2s; text-align:left; color:var(--text); }
+.quiz-option:hover { border-color:var(--gold); background:var(--gold-dim); }
+.quiz-option.correct { border-color:var(--green); background:rgba(45,198,83,0.1); color:var(--green); }
+.quiz-option.wrong { border-color:var(--red); background:rgba(230,57,70,0.1); color:var(--red); }
+.quiz-option.reveal { border-color:var(--green); background:rgba(45,198,83,0.06); }
+.quiz-feedback { padding:14px; background:var(--black); border-radius:8px; font-size:13px; line-height:1.6; display:none; }
+.quiz-feedback.show { display:block; }
+.quiz-feedback.good { border-left:3px solid var(--green); color:var(--green); }
+.quiz-feedback.bad { border-left:3px solid var(--red); }
+.quiz-score-banner { background:var(--gold-dim); border:1px solid var(--gold); border-radius:10px; padding:20px; text-align:center; margin-bottom:16px; display:none; }
+.quiz-score-banner.show { display:block; }
+
+/* ── DIARIO MENTAL ── */
+.mood-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-bottom:16px; }
+.mood-btn { padding:12px 6px; border-radius:10px; border:1px solid var(--border); background:var(--card2); cursor:pointer; text-align:center; transition:all 0.2s; }
+.mood-btn:hover { border-color:var(--gold); transform:translateY(-2px); }
+.mood-btn.selected { border-color:var(--gold); background:var(--gold-dim); }
+.mood-emoji { font-size:28px; display:block; margin-bottom:4px; }
+.mood-label { font-family:var(--font-mono); font-size:9px; color:var(--text2); letter-spacing:1px; }
+.journal-entry { background:var(--card2); border:1px solid var(--border); border-radius:10px; padding:16px; margin-bottom:12px; }
+.journal-entry-header { display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+.journal-entry-date { font-family:var(--font-mono); font-size:11px; color:var(--text3); letter-spacing:1px; }
+.journal-entry-mood { font-size:20px; }
+.journal-entry-text { font-size:13px; color:var(--text2); line-height:1.6; }
+.journal-tag { display:inline-block; font-family:var(--font-mono); font-size:10px; padding:2px 8px; border-radius:4px; margin:4px 4px 0; background:var(--gold-dim); color:var(--gold); border:1px solid rgba(245,184,0,0.3); }
+.pattern-insight { background:linear-gradient(135deg,var(--card2),rgba(245,184,0,0.03)); border:1px solid var(--gold); border-radius:10px; padding:16px; margin-bottom:14px; }
+.pattern-icon { font-size:28px; margin-bottom:6px; }
+.pattern-title { font-family:var(--font-display); font-size:17px; margin-bottom:4px; }
+.pattern-text { font-size:13px; color:var(--text2); line-height:1.5; }
+
 /* ── SCROLLBAR ── */
 ::-webkit-scrollbar { width:6px; height:6px; }
 ::-webkit-scrollbar-track { background:var(--deep); }
@@ -962,6 +1091,7 @@ select option { background: var(--card); }
     <button class="tab-btn active" onclick="showTab('dashboard')">📊 Dashboard</button>
     <button class="tab-btn" onclick="showTab('challenges')">🎯 Desafíos</button>
     <button class="tab-btn" onclick="showTab('training')">🏋️ Entrenamiento</button>
+    <button class="tab-btn" onclick="showTab('search')">🔍 Buscar por Área</button>
     <button class="tab-btn" onclick="showTab('stats')">📈 Estadísticas</button>
     <button class="tab-btn" onclick="showTab('tips')">🧠 Conocimiento</button>
     <button class="tab-btn" onclick="showTab('medals')">🏅 Logros</button>
@@ -972,6 +1102,7 @@ select option { background: var(--card); }
     <button class="tab-btn" onclick="showTab('elite')">⭐ Élite</button>
     <button class="tab-btn" onclick="showTab('card')">🃏 Mi Tarjeta</button>
     <button class="tab-btn" onclick="showTab('journal')">😊 Diario</button>
+    <button class="tab-btn" onclick="showTab('quizzes')">❓ Quizzes</button>
   </div>
 
   <div class="app-content">
@@ -1055,6 +1186,25 @@ select option { background: var(--card); }
       <div class="section-title">PLAN SEMANAL ELITE</div>
       <p class="section-sub" id="training-sub">Generado según tu perfil físico y debilidades detectadas.</p>
       <div id="training-plan"></div>
+    </div>
+
+    <!-- ── BUSCADOR POR ÁREA ── -->
+    <div id="tab-search" class="tab-panel">
+      <div class="section-title">BUSCAR ENTRENAMIENTO POR ÁREA</div>
+      <p class="section-sub">Elige un área específica y entrena ejercicios sueltos a tu ritmo. Marca cada uno como completado cuando lo termines.</p>
+
+      <div class="area-select" id="area-select"></div>
+
+      <div class="area-search-bar">
+        <input type="text" id="area-search-input" placeholder="🔎 Buscar ejercicio por nombre..." oninput="renderAreaDrills()">
+      </div>
+
+      <div class="area-progress">
+        <div class="area-progress-label" id="area-progress-label">0/0 completados</div>
+        <div class="xp-track"><div class="xp-fill" id="area-progress-fill" style="width:0%"></div></div>
+      </div>
+
+      <div id="area-drills-list"></div>
     </div>
 
     <!-- ── STATS ── -->
@@ -1260,6 +1410,13 @@ select option { background: var(--card); }
       <div id="journal-content"></div>
     </div>
 
+    <!-- ── QUIZZES ── -->
+    <div id="tab-quizzes" class="tab-panel">
+      <div class="section-title">QUIZZES TÁCTICOS</div>
+      <p class="section-sub">8 situaciones reales de partido. ¿Tomarías la decisión correcta? Cada respuesta entrena tu inteligencia táctica.</p>
+      <div id="quiz-container"></div>
+    </div>
+
   </div><!-- /app-content -->
 </div><!-- /screen-app -->
 
@@ -1362,6 +1519,8 @@ let xp = 0, level = 1, streak = 0;
 let completedChallenges = [];
 let currentChallenge = null;
 let selectedScore = null;
+let completedAreaExercises = []; // ids de ejercicios del buscador por área marcados como completados
+let currentArea = 'tecnica';
 
 const XP_PER_LEVEL = 500;
 
@@ -1384,7 +1543,8 @@ function saveProgress() {
     weeklySnapshots,
     unlockedMedals,
     assessmentResults,
-    journalEntries, completedWeeks, milestonesDone,
+    journalEntries, planGoalsDone, completedWeeks, milestonesDone,
+    completedAreaExercises,
     history: window._history || [],
     savedAt: new Date().toISOString()
   };
@@ -1415,9 +1575,12 @@ function loadProgress() {
     weeklySnapshots = data.weeklySnapshots || [];
     unlockedMedals  = data.unlockedMedals  || [];
     assessmentResults = data.assessmentResults || {};
+    planGoalsDone     = data.planGoalsDone     || {};
+    journalEntries    = data.journalEntries    || [];
     journalEntries  = data.journalEntries  || [];
     completedWeeks  = data.completedWeeks  || [];
     milestonesDone  = data.milestonesDone  || [];
+    completedAreaExercises = data.completedAreaExercises || [];
     window._history = data.history || [];
     return true;
   } catch(e) { return false; }
@@ -1928,6 +2091,56 @@ const BASE_TRAINING = {
   }
 };
 
+// ════════════════════════════════
+//  BIBLIOTECA DE EJERCICIOS POR ÁREA
+// ════════════════════════════════
+const AREA_INFO = {
+  tecnica: { icon:'🎯', name:'TÉCNICA' },
+  fisico:  { icon:'💪', name:'FÍSICO' },
+  tactica: { icon:'🗺️', name:'TÁCTICA' },
+  mental:  { icon:'🧘', name:'MENTAL' }
+};
+
+const EXERCISE_LIBRARY = {
+  tecnica: [
+    {id:'tec-01', name:'Control y primer toque', detail:'20 min — Pared, toque suave, orientación del cuerpo al recibir', tags:['Control','20 min']},
+    {id:'tec-02', name:'Remates al arco', detail:'20 min — Remates desde distintos ángulos, potencia y colocación', tags:['Remate','20 min']},
+    {id:'tec-03', name:'Regate 1v1 (conos o compañero)', detail:'15 min — Fintas básicas: amague, tijera, doble toque', tags:['Regate','15 min']},
+    {id:'tec-04', name:'Pase corto y largo', detail:'15 min — Precisión con ambos pies, pase raso y elevado', tags:['Pase','15 min']},
+    {id:'tec-05', name:'Cabeceo dirigido', detail:'10 min — Centros y cabeceos hacia zonas específicas del arco', tags:['Cabeceo','10 min']},
+    {id:'tec-06', name:'Conducción de balón', detail:'12 min — Conducción a máxima velocidad con ambos perfiles', tags:['Conducción','12 min']},
+    {id:'tec-07', name:'Definición bajo presión', detail:'15 min — Remates con oposición o límite de tiempo', tags:['Remate','15 min']},
+    {id:'tec-08', name:'Malabares / control aéreo', detail:'10 min — Toques con ambos pies, muslo y cabeza sin dejar caer el balón', tags:['Control','10 min']}
+  ],
+  fisico: [
+    {id:'fis-01', name:'Sprints cortos 10m', detail:'8 repeticiones con 90 seg de descanso — Salida explosiva', tags:['Velocidad','15 min']},
+    {id:'fis-02', name:'Pliometría (saltos de caja)', detail:'3x10 saltos de caja o sentadillas explosivas', tags:['Potencia','15 min']},
+    {id:'fis-03', name:'Sprint 30m con cambio de dirección', detail:'6 repeticiones — Sprint, giro y regreso', tags:['Velocidad','15 min']},
+    {id:'fis-04', name:'Sentadillas y variantes', detail:'4x12 — Sentadilla libre, búlgara y zancadas', tags:['Fuerza','20 min']},
+    {id:'fis-05', name:'Core específico fútbol', detail:'3x15 — Plancha, giro de tronco con balón, anti-rotaciones', tags:['Core','15 min']},
+    {id:'fis-06', name:'Salto vertical progresivo (CMJ)', detail:'3x8 saltos con contramovimiento', tags:['Potencia','10 min']},
+    {id:'fis-07', name:'Fartlek con balón', detail:'10 min — Alterna trote y sprint llevando balón', tags:['Resistencia','10 min']},
+    {id:'fis-08', name:'Empuje y tracción', detail:'3x10 flexiones explosivas + dominadas asistidas si hay barra', tags:['Fuerza','12 min']}
+  ],
+  tactica: [
+    {id:'tac-01', name:'Video análisis de referente', detail:'15 min — Estudia movimientos sin balón de un jugador élite en tu posición', tags:['Análisis','15 min']},
+    {id:'tac-02', name:'Sombra táctica', detail:'20 min — Ejecuta movimientos de desmarque sin balón', tags:['Posicionamiento','20 min']},
+    {id:'tac-03', name:'Juego de posición 2v2', detail:'20 min con compañero — Ocupa espacios, pases y apoyo', tags:['Posicionamiento','20 min']},
+    {id:'tac-04', name:'Transiciones ofensivas', detail:'15 min — Reacción, giro y conducción hacia portería', tags:['Transición','15 min']},
+    {id:'tac-05', name:'Lectura de espacios libres', detail:'15 min — Identifica y ocupa huecos entre líneas rivales', tags:['Lectura','15 min']},
+    {id:'tac-06', name:'Situaciones de partido (1v1 a 3v3)', detail:'25 min — Escenarios reales con compañeros o vs conos', tags:['Situacional','25 min']},
+    {id:'tac-07', name:'Presión tras pérdida', detail:'15 min — Reacciona en menos de 5 segundos tras perder el balón', tags:['Presión','15 min']}
+  ],
+  mental: [
+    {id:'men-01', name:'Visualización pre-entrenamiento', detail:'5 min — Imagina remates y jugadas exitosas antes de empezar', tags:['Visualización','5 min']},
+    {id:'men-02', name:'Respiración diafragmática', detail:'10 min — Técnica de respiración para control de ansiedad y foco', tags:['Respiración','10 min']},
+    {id:'men-03', name:'Rutina de activación mental', detail:'10 min — Visualización del juego + respiración antes de entrenar/jugar', tags:['Foco','10 min']},
+    {id:'men-04', name:'Gestión de la frustración', detail:'10 min — Reflexiona y anota cómo reaccionas ante errores propios', tags:['Autocontrol','10 min']},
+    {id:'men-05', name:'Meditación de regeneración', detail:'5 min — Meditación guiada al finalizar el entrenamiento', tags:['Regeneración','5 min']},
+    {id:'men-06', name:'Fijación de metas del día', detail:'5 min — Define 1-2 objetivos concretos antes de entrenar', tags:['Enfoque','5 min']}
+  ]
+};
+
 const TIPS = [
   {cat:'TÁCTICA — DELANTERO',text:'El movimiento sin balón es la habilidad más subestimada de un delantero. Un 9 de élite hace 3-4 desmarques por cada balón que recibe. Crea el espacio antes de pedirlo.',source:'Principios del juego — UEFA Pro Coaching'},
   {cat:'TÉCNICA — PRIMER TOQUE',text:'El primer toque decide el 80% de las jugadas. Orienta el balón hacia el espacio libre antes de tenerlo. El cuerpo debe estar semiabierto para ver el campo completo al recibir.',source:'Manual técnico FIFA'},
@@ -2006,15 +2219,10 @@ function launchApp() {
   document.getElementById('screen-onboarding').classList.remove('active');
   document.getElementById('screen-login').classList.remove('active');
   document.getElementById('screen-app').classList.add('active');
-  renderTopbar();
-  renderDashboard();
-  renderChallenges();
-  renderTraining();
-  renderStats();
-  renderTips();
-  renderMedals();
-  renderDNA();
-  renderAssessment();
+  renderTopbar(); renderDashboard(); renderChallenges(); renderTraining();
+  renderStats(); renderTips(); renderMedals(); renderDNA();
+  renderAssessment(); renderPlan(); renderNutrition(); renderCard();
+  renderJournal(); renderQuizzes();
   updateMedalCountBadge();
 }
 
@@ -2566,6 +2774,76 @@ function toggleDay(header) {
 }
 
 // ════════════════════════════════
+//  BUSCADOR DE ENTRENAMIENTO POR ÁREA
+// ════════════════════════════════
+function renderAreaSearch() {
+  document.getElementById('area-select').innerHTML = Object.keys(AREA_INFO).map(area => {
+    const info = AREA_INFO[area];
+    const list = EXERCISE_LIBRARY[area] || [];
+    const doneCount = list.filter(e => completedAreaExercises.includes(e.id)).length;
+    return `
+      <div class="area-chip ${area === currentArea ? 'active' : ''}" onclick="selectArea('${area}')">
+        <div class="area-chip-icon">${info.icon}</div>
+        <div class="area-chip-name">${info.name}</div>
+        <div class="area-chip-count">${doneCount}/${list.length} completados</div>
+      </div>
+    `;
+  }).join('');
+  renderAreaDrills();
+}
+
+function selectArea(area) {
+  currentArea = area;
+  const input = document.getElementById('area-search-input');
+  if (input) input.value = '';
+  renderAreaSearch();
+}
+
+function renderAreaDrills() {
+  const query = (document.getElementById('area-search-input')?.value || '').trim().toLowerCase();
+  const list = (EXERCISE_LIBRARY[currentArea] || []).filter(e =>
+    !query || e.name.toLowerCase().includes(query) || e.detail.toLowerCase().includes(query)
+  );
+
+  const totalArea = (EXERCISE_LIBRARY[currentArea] || []).length;
+  const doneArea = (EXERCISE_LIBRARY[currentArea] || []).filter(e => completedAreaExercises.includes(e.id)).length;
+  document.getElementById('area-progress-label').textContent = `${doneArea}/${totalArea} completados`;
+  document.getElementById('area-progress-fill').style.width = totalArea ? `${(doneArea/totalArea)*100}%` : '0%';
+
+  const container = document.getElementById('area-drills-list');
+  if (list.length === 0) {
+    container.innerHTML = `<div class="area-empty">No se encontraron ejercicios con ese nombre.</div>`;
+    return;
+  }
+
+  container.innerHTML = list.map(e => {
+    const done = completedAreaExercises.includes(e.id);
+    return `
+      <div class="drill-item ${done ? 'done' : ''}">
+        <button class="btn-complete" onclick="toggleAreaDrill('${e.id}')" title="Marcar como completado">✓</button>
+        <div class="drill-info">
+          <div class="drill-name">${e.name}</div>
+          <div class="drill-detail">${e.detail}</div>
+          <div class="drill-tags">${e.tags.map(t => `<span class="drill-tag">${t}</span>`).join('')}</div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleAreaDrill(id) {
+  if (completedAreaExercises.includes(id)) {
+    completedAreaExercises = completedAreaExercises.filter(x => x !== id);
+  } else {
+    completedAreaExercises.push(id);
+    xp += 15; level = Math.floor(xp/500) + 1;
+    showToast('✅', 'Ejercicio completado +15 XP');
+  }
+  saveProgress();
+  renderAreaSearch();
+}
+
+// ════════════════════════════════
 //  STATS PANEL
 // ════════════════════════════════
 // ════════════════════════════════
@@ -2933,11 +3211,17 @@ function showTab(id) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   event.target.classList.add('active');
-  if (id==='dashboard') { setTimeout(drawRadar, 100); }
-  if (id==='stats') { setTimeout(renderCharts, 100); }
-  if (id==='medals') { setTimeout(renderMedals, 100); }
-  if (id==='dna') { setTimeout(renderDNA, 100); }
-  if (id==='assessment') { setTimeout(renderAssessment, 100); }
+  if (id==='dashboard')   { setTimeout(drawRadar, 100); }
+  if (id==='stats')       { setTimeout(renderCharts, 100); }
+  if (id==='medals')      { setTimeout(renderMedals, 100); }
+  if (id==='dna')         { setTimeout(renderDNA, 100); }
+  if (id==='assessment')  { setTimeout(renderAssessment, 100); }
+  if (id==='plan')        { setTimeout(renderPlan, 100); }
+  if (id==='nutrition')   { setTimeout(renderNutrition, 100); }
+  if (id==='card')        { setTimeout(renderCard, 100); }
+  if (id==='journal')     { setTimeout(renderJournal, 100); }
+  if (id==='quizzes')     { setTimeout(renderQuizzes, 100); }
+  if (id==='search')      { setTimeout(renderAreaSearch, 100); }
 }
 
 // ════════════════════════════════
@@ -4138,6 +4422,450 @@ function saveJournalEntry() {
   renderJournal();
   renderDashboard();
   showToast('😊','Entrada registrada en tu diario mental');
+}
+
+// ════════════════════════════════
+//  PLAN 30/60/90 DÍAS
+// ════════════════════════════════
+let planGoalsDone = {};
+let activePlanPhase = 0;
+
+const PLAN_PHASES = [
+  { days:30, label:'30 DÍAS', title:'FASE 1 — FUNDAMENTOS', color:'var(--gold)',
+    desc:'Establece base física, técnica y hábitos de entrenamiento diario.',
+    weeks:[
+      { label:'SEM 1', title:'Evaluación y línea base',
+        goals:['Completa las 8 pruebas de evaluación física','Identifica tus 3 áreas más débiles','Establece rutina de calentamiento diaria (15 min)','Aprende la técnica básica de sprint y conducción'],
+        milestone:'🏁 LÍNEA BASE ESTABLECIDA' },
+      { label:'SEM 2', title:'Técnica fundamental',
+        goals:['30 min diarios de trabajo de balón (malabarismo, pase)','Completa 3 desafíos técnicos','Inicia rutina de fuerza 3x/semana','Registra 5 entradas en el diario mental'],
+        milestone:'⚽ TÉCNICA EN PROGRESO' },
+      { label:'SEM 3', title:'Resistencia aeróbica',
+        goals:['2 sesiones de fartlek (20 min c/u)','Test de Cooper parcial — mide tu progreso','Agrega 10 min de estiramientos post-entrenamiento','Completa 2 desafíos físicos'],
+        milestone:'❤️ BASE AERÓBICA ACTIVA' },
+      { label:'SEM 4', title:'Integración y revisión',
+        goals:['Re-evalúa 3 pruebas físicas de la semana 1','Completa al menos 8 desafíos totales','Revisa tu nutrición semanal y ajusta hidratación','Anota tus 3 mejoras más notorias del mes'],
+        milestone:'📊 PRIMER MES COMPLETADO' }
+    ]
+  },
+  { days:60, label:'60 DÍAS', title:'FASE 2 — DESARROLLO', color:'var(--blue)',
+    desc:'Profundiza habilidades específicas de tu posición y aumenta la carga.',
+    weeks:[
+      { label:'SEM 5', title:'Velocidad y explosividad',
+        goals:['Introduce pliometría 2x/semana (saltos, sprints cortos)','Mejora tu sprint 30m vs semana 1','Aprende 2 regates nuevos según tu posición','Completa desafío de slalom con mejor tiempo'],
+        milestone:'💨 EXPLOSIVIDAD MEJORADA' },
+      { label:'SEM 6', title:'Visión y táctica',
+        goals:['Estudia 3 videos de análisis táctico de tu posición','Completa los quizzes tácticos (mínimo 70% correcto)','Practica sombra táctica 20 min/día','Empieza a identificar patrones en tu diario mental'],
+        milestone:'🗺️ VISIÓN TÁCTICA ACTIVA' },
+      { label:'SEM 7', title:'Fuerza específica',
+        goals:['Aumenta volumen de sentadillas (+20% reps)','Introduce trabajo excéntrico y core avanzado','Completa circuito de fuerza con mejor marca','Mantén 7 días consecutivos de entrenamiento registrado'],
+        milestone:'💪 FUERZA DE ÉLITE EN DESARROLLO' },
+      { label:'SEM 8', title:'Revisión de los 60 días',
+        goals:['Repite las 8 pruebas de evaluación física','Compara tus estadísticas vs día 1 en Mi ADN','Actualiza tu tarjeta de jugador','Revisa medallas desbloqueadas — ¿cuántas conseguiste?'],
+        milestone:'🏅 60 DÍAS — NIVEL SEMIPRO' }
+    ]
+  },
+  { days:90, label:'90 DÍAS', title:'FASE 3 — ÉLITE', color:'var(--green)',
+    desc:'Perfecciona tu juego completo y alcanza el nivel profesional.',
+    weeks:[
+      { label:'SEM 9', title:'Integración total',
+        goals:['Entrena las 4 áreas (técnica, físico, táctica, mental) cada semana','Completa todos los desafíos disponibles','Arma tu rutina pre-partido personal','Alcanza puntuación >70 en visión espacial y decisiones'],
+        milestone:'⚡ JUGADOR COMPLETO EN PROGRESO' },
+      { label:'SEM 10', title:'Mentalidad de élite',
+        goals:['10 entradas en el diario mental con análisis de patrones','Practica visualización 5 min antes de cada sesión','Completa desafíos mentales con puntuación 8+/10','Identifica tu arma secreta dominante'],
+        milestone:'🧠 MENTALIDAD PROFESIONAL' },
+      { label:'SEM 11', title:'Rendimiento bajo presión',
+        goals:['Repite todos los desafíos de presión con nueva marca','Sprint 30m — supera tu mejor tiempo personal','Test de Cooper — supera tu marca de la semana 4','Mantén racha de 7 días consecutivos de desafíos'],
+        milestone:'🔥 RENDIMIENTO BAJO PRESIÓN' },
+      { label:'SEM 12', title:'Evaluación final — ¿Listo para el siguiente nivel?',
+        goals:['Completa las 8 pruebas de evaluación por tercera vez','Genera tu reporte de los 90 días en Mi ADN','Compara tus estadísticas con referentes de élite','Define tus metas para los próximos 90 días'],
+        milestone:'🏆 90 DÍAS — NIVEL PROFESIONAL' }
+    ]
+  }
+];
+
+function renderPlan() {
+  // Phase cards
+  document.getElementById('plan-phase-cards').innerHTML = PLAN_PHASES.map((p,i) => `
+    <div class="phase-card ${activePlanPhase===i?'active':''}" onclick="setPlanPhase(${i})">
+      <div class="phase-num" style="color:${p.color}">${p.days}</div>
+      <div class="phase-label" style="color:${p.color}">DÍAS</div>
+      <div style="font-family:var(--font-display);font-size:14px;margin-top:6px;letter-spacing:1px">${p.title}</div>
+      <div class="phase-desc">${p.desc}</div>
+    </div>`).join('');
+
+  const phase = PLAN_PHASES[activePlanPhase];
+  const totalGoals = phase.weeks.reduce((a,w)=>a+w.goals.length,0);
+  const doneGoals  = phase.weeks.reduce((a,w,wi)=>a+w.goals.filter((_,gi)=>planGoalsDone[`${activePlanPhase}-${wi}-${gi}`]).length,0);
+
+  document.getElementById('plan-weeks-container').innerHTML = `
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-header">
+        <div class="card-title">${phase.title}</div>
+        <div class="card-badge badge-gold">${doneGoals}/${totalGoals} metas</div>
+      </div>
+      <div class="prog-track" style="height:8px"><div class="prog-fill" style="width:${Math.round(doneGoals/totalGoals*100)}%"></div></div>
+    </div>
+    ${phase.weeks.map((w,wi) => {
+      const wDone = w.goals.filter((_,gi)=>planGoalsDone[`${activePlanPhase}-${wi}-${gi}`]).length;
+      const wComplete = wDone === w.goals.length;
+      return `<div class="week-block">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <div class="week-badge">${w.label}</div>
+          <div class="week-title">${w.title}</div>
+          <div style="font-family:var(--font-mono);font-size:11px;color:var(--text2)">${wDone}/${w.goals.length}</div>
+          <div class="week-status">${wComplete?'✅':'▼'}</div>
+        </div>
+        <div class="week-body">
+          ${w.goals.map((g,gi)=>{
+            const key=`${activePlanPhase}-${wi}-${gi}`;
+            const done=planGoalsDone[key];
+            return `<div class="goal-item">
+              <div class="goal-check ${done?'done':''}" onclick="toggleGoal('${key}',this)">${done?'✓':''}</div>
+              <div style="${done?'text-decoration:line-through;color:var(--text3)':''}font-size:13px">${g}</div>
+            </div>`;
+          }).join('')}
+          ${wComplete?`<div style="padding:10px 0"><div class="milestone-badge">${w.milestone}</div></div>`:''}
+        </div>
+      </div>`;
+    }).join('')}`;
+}
+
+function setPlanPhase(i) { activePlanPhase = i; renderPlan(); }
+function toggleWeek(header) {
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+  const st = header.querySelector('.week-status');
+  if (st && st.textContent==='▼') st.textContent='▲';
+  else if (st && st.textContent==='▲') st.textContent='▼';
+}
+function toggleGoal(key, el) {
+  planGoalsDone[key] = !planGoalsDone[key];
+  el.classList.toggle('done', planGoalsDone[key]);
+  el.textContent = planGoalsDone[key] ? '✓' : '';
+  el.nextElementSibling.style.textDecoration = planGoalsDone[key] ? 'line-through' : '';
+  el.nextElementSibling.style.color = planGoalsDone[key] ? 'var(--text3)' : '';
+  saveProgress(); renderPlan();
+}
+
+// ════════════════════════════════
+//  NUTRICIÓN
+// ════════════════════════════════
+function calcNutrition() {
+  const w = player.weight || 75;
+  const h = player.height || 178;
+  const a = player.age || 22;
+  const days = player.days || 5;
+  const pos = player.position || 'delantero';
+
+  // Harris-Benedict + factor actividad
+  const bmr = 88.36 + (13.4*w) + (4.8*h) - (5.7*a);
+  const actFactor = days >= 5 ? 1.725 : days >= 3 ? 1.55 : 1.375;
+  const tdee = Math.round(bmr * actFactor);
+  const protein = Math.round(w * 2.2);
+  const fat     = Math.round(tdee * 0.25 / 9);
+  const carbs   = Math.round((tdee - protein*4 - fat*9) / 4);
+  const water   = Math.round(w * 0.04 * 10) / 10;
+
+  const posExtra = { delantero:'Alta intensidad anaeróbica — prioriza carbohidratos rápidos pre-entrenamiento.',
+    mediocampista:'Alto volumen aeróbico — carbohidratos complejos durante todo el día.',
+    defensa:'Fuerza y resistencia — proteína elevada para recuperación muscular.',
+    portero:'Explosividad y concentración — omega-3 y snacks energéticos en descansos.' }[pos];
+
+  const meals = [
+    { time:'07:00 AM', name:'Desayuno Pre-entreno', cals:Math.round(tdee*0.25),
+      detail:`Avena (80g) + plátano + 3 huevos revueltos + vaso de leche. Carbohidratos complejos para energía sostenida.` },
+    { time:'10:00 AM', name:'Snack Mid-mañana', cals:Math.round(tdee*0.10),
+      detail:`Manzana + puñado de nueces (30g) + yogur griego. Mantenimiento de glucosa y aminoácidos.` },
+    { time:'01:00 PM', name:'Almuerzo Principal', cals:Math.round(tdee*0.30),
+      detail:`Arroz integral (150g) + pechuga de pollo o atún (200g) + ensalada de vegetales + aguacate. Máxima recuperación post-entreno.` },
+    { time:'04:00 PM', name:'Snack Pre-partido', cals:Math.round(tdee*0.10),
+      detail:`Plátano + pan integral con crema de cacahuate. Energía rápida y sostenida para el entrenamiento de tarde.` },
+    { time:'07:30 PM', name:'Cena de Recuperación', cals:Math.round(tdee*0.25),
+      detail:`Salmón o carne magra (180g) + camote + brócoli. Proteína para reconstrucción muscular nocturna.` }
+  ];
+
+  return { tdee, protein, fat, carbs, water, posExtra, meals };
+}
+
+function renderNutrition() {
+  const n = calcNutrition();
+  const waterGlasses = Math.round(n.water * 4);
+
+  document.getElementById('nutrition-content').innerHTML = `
+    <div class="grid-4" style="margin-bottom:16px">
+      <div class="macro-card"><div class="macro-val">${n.tdee}</div><div class="macro-unit">KCAL/DÍA</div><div class="macro-label">Calorías totales</div></div>
+      <div class="macro-card"><div class="macro-val" style="color:var(--red)">${n.protein}g</div><div class="macro-unit">PROTEÍNA</div><div class="macro-label">${Math.round(n.protein*4)} kcal</div></div>
+      <div class="macro-card"><div class="macro-val" style="color:var(--gold)">${n.carbs}g</div><div class="macro-unit">CARBOS</div><div class="macro-label">${Math.round(n.carbs*4)} kcal</div></div>
+      <div class="macro-card"><div class="macro-val" style="color:var(--green)">${n.fat}g</div><div class="macro-unit">GRASAS</div><div class="macro-label">${Math.round(n.fat*9)} kcal</div></div>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-header"><div class="card-title">HIDRATACIÓN DIARIA</div><div class="card-badge badge-blue">${n.water}L / ${waterGlasses} vasos</div></div>
+      <div class="hydration-bar"><div class="hydration-fill" style="width:${Math.min(100,waterGlasses*8)}%"></div></div>
+      <div style="font-size:12px;color:var(--text2);margin-top:6px">Mínimo ${n.water}L al día. Durante entrenamiento: 200ml cada 20 minutos.</div>
+    </div>
+    <div class="tip-card" style="margin-bottom:16px">
+      <div class="tip-category">🎯 NOTA PARA TU POSICIÓN</div>
+      <div class="tip-text">${n.posExtra}</div>
+    </div>
+    <div class="section-title" style="font-size:22px;margin-bottom:12px">PLAN DE COMIDAS</div>
+    ${n.meals.map(m=>`
+      <div class="meal-card">
+        <div class="meal-time">${m.time}</div>
+        <div class="meal-name">${m.name} <span style="float:right;font-family:var(--font-mono);font-size:12px;color:var(--text3)">${m.cals} kcal</span></div>
+        <div class="meal-detail">${m.detail}</div>
+      </div>`).join('')}
+    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px">
+      ${['Sin alcohol','Reduce azúcar procesada','Duerme 8h para recuperación','Creatina monohidrato (3-5g/día)','Vitamina D si entrenas bajo techo'].map(t=>`<span class="tip-pill">${t}</span>`).join('')}
+    </div>`;
+}
+
+// ════════════════════════════════
+//  TARJETA FIFA
+// ════════════════════════════════
+function getOverallRating() {
+  return Math.min(99, Math.round(
+    (stats.tecnica*0.35 + stats.fisico*0.30 + stats.tactica*0.20 + stats.mental*0.15) * 0.99
+  ));
+}
+
+function getPosShortName(pos) {
+  return { delantero:'DEL', mediocampista:'MED', defensa:'DEF', portero:'POR' }[pos] || 'JUG';
+}
+
+function renderCard() {
+  const pos = player.position || 'delantero';
+  const rating = getOverallRating();
+  const posShort = getPosShortName(pos);
+  const initials = (player.name||'?')[0].toUpperCase();
+
+  const statRows = {
+    delantero:    [['RIT',Math.min(99,subStats.fisico?.velocidad||50)],['TIR',Math.min(99,subStats.tecnica?.remate||50)],['PAS',Math.min(99,subStats.tecnica?.pase||50)],['REG',Math.min(99,subStats.tecnica?.regate||50)],['DEF',Math.min(99,Math.round((subStats.tactica?.posicion||50)*0.6))],['FÍS',Math.min(99,subStats.fisico?.resistencia||50)]],
+    mediocampista:[['PAS',Math.min(99,subStats.tecnica?.pase||50)],['VIS',Math.min(99,subStats.tactica?.lectura||50)],['RIT',Math.min(99,subStats.fisico?.velocidad||50)],['TIR',Math.min(99,subStats.tecnica?.disparo||50)],['DEF',Math.min(99,subStats.tactica?.presion||50)],['FÍS',Math.min(99,subStats.fisico?.resistencia||50)]],
+    defensa:      [['MAR',Math.min(99,subStats.tactica?.marcaje||50)],['CAB',Math.min(99,subStats.tecnica?.cabeceo||50)],['VEL',Math.min(99,subStats.fisico?.velocidad||50)],['FUE',Math.min(99,subStats.fisico?.fuerza||50)],['PAS',Math.min(99,subStats.tecnica?.pase||50)],['POS',Math.min(99,subStats.tactica?.posicion||50)]],
+    portero:      [['PAR',Math.min(99,subStats.tecnica?.paradas||50)],['REF',Math.min(99,subStats.fisico?.reflejos||50)],['SAL',Math.min(99,subStats.tactica?.salidas||50)],['PIE',Math.min(99,subStats.tecnica?.piesDom||50)],['SAQ',Math.min(99,subStats.tecnica?.saques||50)],['COM',Math.min(99,subStats.tactica?.comunicacion||50)]]
+  }[pos] || [];
+
+  const ratingColor = rating>=85?'#f5b800':rating>=75?'#2dc653':rating>=65?'#3d9be9':'#e63946';
+
+  document.getElementById('card-content').innerHTML = `
+    <div class="fifa-card">
+      <div style="display:flex;align-items:flex-start;gap:16px;margin-bottom:8px">
+        <div>
+          <div class="fifa-rating" style="color:${ratingColor}">${rating}</div>
+          <div class="fifa-pos" style="color:${ratingColor}">${posShort}</div>
+          <div class="fifa-flag">🇲🇽</div>
+        </div>
+        <div style="flex:1;display:flex;align-items:center;justify-content:center">
+          <div style="width:80px;height:80px;border-radius:50%;background:rgba(245,184,0,0.15);border:2px solid ${ratingColor};display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:36px;color:${ratingColor}">${initials}</div>
+        </div>
+      </div>
+      <div class="fifa-name">${(player.name||'JUGADOR').toUpperCase()}</div>
+      <div class="fifa-stats-grid">
+        ${statRows.map(([lbl,val])=>`
+          <div class="fifa-stat-row">
+            <div class="fifa-stat-val" style="color:${val>=75?'#f5b800':val>=60?'#2dc653':'#8a9ab0'}">${val}</div>
+            <div class="fifa-stat-name">${lbl}</div>
+          </div>`).join('')}
+      </div>
+      <div class="fifa-club">⚡ STRIKER ELITE · ${player.age||22} AÑOS · ${player.height||178}CM</div>
+    </div>
+    <div style="text-align:center">
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text2);letter-spacing:1px;margin-bottom:12px">RATING GENERAL: <span style="color:${ratingColor};font-size:18px;font-family:var(--font-display)">${rating}</span></div>
+      <button class="share-btn" onclick="shareCard()">📤 COMPARTIR TARJETA</button>
+    </div>`;
+}
+
+function shareCard() {
+  const pos = player.position || 'delantero';
+  const rating = getOverallRating();
+  const text = `⚽ Mi tarjeta de jugador en STRIKER ELITE\n🏆 Rating: ${rating}/99\n📍 Posición: ${(player.position||'delantero').toUpperCase()}\n⚡ Técnica: ${stats.tecnica} | 💪 Físico: ${stats.fisico}\n🗺️ Táctica: ${stats.tactica} | 🧘 Mental: ${stats.mental}\n\nDescarga la app: https://leonardo182019-jpg.github.io/striker-elite-/`;
+  if (navigator.share) {
+    navigator.share({ title:'Mi tarjeta STRIKER ELITE', text });
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(text);
+    showToast('📋', 'Tarjeta copiada al portapapeles. ¡Pégala donde quieras!');
+  }
+}
+
+// ════════════════════════════════
+//  QUIZZES TÁCTICOS
+// ════════════════════════════════
+const QUIZ_QUESTIONS = [
+  { q:'Estás solo ante el portero. El portero sale a cortarte. ¿Qué haces?',
+    opts:['Remato con toda la fuerza posible','Espero a que salga y lo pico por encima','Freno bruscamente y espero','Remato al cuerpo del portero'],
+    correct:1, area:'decision',
+    explanation:'Cuando el portero sale, la mejor opción es esperar el máximo tiempo y picar o colocar el balón sobre él. Rematar con fuerza facilita la parada al portero.' },
+  { q:'Recibes un pase con un defensor muy cercano presionándote por detrás. Tu equipo ataca. ¿Cuál es la mejor decisión?',
+    opts:['Controlo y giro hacia el defensor','Doy un pase de espaldas al jugador más cercano libre','Driblo hacia el área','Hago falta para detener el juego'],
+    correct:1, area:'tactica',
+    explanation:'Con presión por detrás, el pase de primera al jugador libre es la decisión más inteligente. Girarte puede resultar en pérdida de balón.' },
+  { q:'Tu equipo recuperó el balón en campo propio. El rival está desorganizado. ¿Qué haces como delantero?',
+    opts:['Bajo a ayudar a construir el juego','Arranuco en profundidad a máxima velocidad buscando el espacio','Me quedo estático esperando el pase','Pido el balón al pie al lateral'],
+    correct:1, area:'tactica',
+    explanation:'En contragolpe, el delantero debe explotar el espacio inmediatamente mientras el rival está desorganizado. Es el momento de mayor ventaja ofensiva.' },
+  { q:'El portero rival tiene el balón. ¿Cómo presionas como delantero?',
+    opts:['Corro directo al portero para presionar','Presiono en diagonal cortando el pase al central, forzando el lateral','Me quedo esperando en mi posición','Presiono al defensa central directamente'],
+    correct:1, area:'tactica',
+    explanation:'El pressing moderno exige presionar en diagonal, cerrando la opción del pase corto y forzando hacia zonas donde el equipo puede robar.' },
+  { q:'Llevas 80 minutos jugando y sientes fatiga. Tu equipo empata. ¿Cómo gestionas el esfuerzo?',
+    opts:['Reduzco toda mi intensidad para recuperar energía','Mantengo la posición táctica y exploto solo en las transiciones clave','Pido el cambio inmediatamente','Ignoro la fatiga y mantengo el máximo esfuerzo siempre'],
+    correct:1, area:'mental',
+    explanation:'La gestión de la energía es una habilidad de élite. Los mejores jugadores mantienen posición y explotan selectivamente en los momentos decisivos.' },
+  { q:'Tu compañero tiene el balón en el área rival y estás en posición de rematar. Hay un defensor pegado a ti. ¿Qué movimiento haces?',
+    opts:['Me quedo quieto esperando el centro','Hago un movimiento de amague al palo corto y arranco al palo largo','Corro directamente al palo más cercano','Salgo del área para pedir el balón'],
+    correct:1, area:'decision',
+    explanation:'El movimiento de amague descoloca al defensor. Fintas al palo corto y arrancas al palo largo donde tendrás ventaja sobre el defensor.' },
+  { q:'Vas perdiendo 1-0 en el minuto 85. ¿Cuál es la mentalidad correcta?',
+    opts:['Es demasiado tarde, bajo el ritmo','Desesperación total — entro en todos los balones sin cabeza','Calma enfocada — maximizo cada posesión y busco el gol con inteligencia','Me frustro y señalo errores de mis compañeros'],
+    correct:2, area:'mental',
+    explanation:'La calma bajo presión extrema es la marca de los jugadores de élite. La desesperación lleva a errores. La frustración destruye al equipo. Foco total en la siguiente jugada.' },
+  { q:'Recibes el balón de espaldas al arco con dos defensores marcándote. ¿Cuál es tu mejor opción?',
+    opts:['Giro y enfrento a los dos defensores','Protejo el balón y busco una pared o apoyo','Remato sin mirar','Salgo del balón en banda'],
+    correct:1, area:'tecnica',
+    explanation:'Con dos defensores encima, proteger el balón y apoyarte en el compañero más cercano evita la pérdida. Un 9 de élite sabe cuándo no es su momento.' }
+];
+
+let quizState = { current:0, answered:false, score:0, done:false };
+
+function renderQuizzes() {
+  const q = QUIZ_QUESTIONS[quizState.current];
+  const scoreHtml = quizState.done ? `
+    <div class="quiz-score-banner show">
+      <div style="font-family:var(--font-display);font-size:48px;color:var(--gold)">${quizState.score}/${QUIZ_QUESTIONS.length}</div>
+      <div style="font-family:var(--font-mono);font-size:12px;color:var(--text2);letter-spacing:1px;margin-top:4px">PUNTUACIÓN FINAL</div>
+      <div style="margin-top:10px;font-size:14px;color:${quizState.score>=6?'var(--green)':quizState.score>=4?'var(--gold)':'var(--red)'}">
+        ${quizState.score>=6?'🏆 Excelente toma de decisiones táctica':quizState.score>=4?'⚡ Buen nivel, sigue practicando':'📚 Estudia más los patrones tácticos'}
+      </div>
+      <button class="btn-assess" style="margin-top:12px" onclick="resetQuiz()">REINICIAR QUIZZES</button>
+    </div>` : '';
+
+  document.getElementById('tab-assessment') && null; // ensure DOM ready
+  const container = document.getElementById('quiz-container');
+  if (!container) return;
+
+  container.innerHTML = `
+    ${scoreHtml}
+    ${!quizState.done ? `
+    <div class="quiz-card">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <div class="card-badge badge-gold">PREGUNTA ${quizState.current+1} / ${QUIZ_QUESTIONS.length}</div>
+        <div style="font-family:var(--font-mono);font-size:11px;color:var(--text2)">PUNTOS: ${quizState.score}</div>
+      </div>
+      <div class="quiz-situation">${q.q}</div>
+      <div class="quiz-options">
+        ${q.opts.map((o,i)=>`
+          <button class="quiz-option ${quizState.answered?(i===q.correct?'correct':i===window._quizSelected?'wrong':'reveal'):''}"
+            onclick="answerQuiz(${i})" ${quizState.answered?'disabled':''}>${o}</button>
+        `).join('')}
+      </div>
+      <div class="quiz-feedback ${quizState.answered?'show':''} ${quizState.answered&&window._quizSelected===q.correct?'good':'bad'}">
+        ${quizState.answered?`${window._quizSelected===q.correct?'✅ ¡Correcto! ':'❌ Incorrecto — '}${q.explanation}`:''}
+      </div>
+      ${quizState.answered?`<button class="btn-assess" style="margin-top:12px" onclick="nextQuiz()">SIGUIENTE →</button>`:''}
+    </div>` : ''}`;
+}
+
+function answerQuiz(i) {
+  if (quizState.answered) return;
+  window._quizSelected = i;
+  quizState.answered = true;
+  if (i === QUIZ_QUESTIONS[quizState.current].correct) {
+    quizState.score++;
+    xp += 30;
+    level = Math.floor(xp/500)+1;
+    saveProgress();
+  }
+  renderQuizzes();
+}
+
+function nextQuiz() {
+  quizState.current++;
+  quizState.answered = false;
+  window._quizSelected = null;
+  if (quizState.current >= QUIZ_QUESTIONS.length) { quizState.done = true; }
+  renderQuizzes();
+}
+
+function resetQuiz() {
+  quizState = { current:0, answered:false, score:0, done:false };
+  window._quizSelected = null;
+  renderQuizzes();
+}
+
+// ════════════════════════════════
+//  DIARIO MENTAL
+// ════════════════════════════════
+
+function renderJournal() {
+  const entries = journalEntries;
+  const avgMood = entries.length ? (entries.reduce((a,e)=>a+e.moodScore,0)/entries.length).toFixed(1) : null;
+
+  // Detect patterns
+  let patternHtml = '';
+  if (entries.length >= 3) {
+    const recentMoods = entries.slice(-5).map(e=>e.moodScore);
+    const avg = recentMoods.reduce((a,b)=>a+b,0)/recentMoods.length;
+    if (avg >= 4) patternHtml = `<div class="pattern-insight"><div class="pattern-icon">🔥</div><div class="pattern-title">Racha positiva</div><div class="pattern-text">Tu estado mental de las últimas sesiones es muy bueno. Estás en tu mejor momento para intentar nuevas marcas.</div></div>`;
+    else if (avg <= 2) patternHtml = `<div class="pattern-insight" style="border-color:var(--red)"><div class="pattern-icon">⚠️</div><div class="pattern-title">Señal de alerta</div><div class="pattern-text">Tu estado mental ha sido bajo recientemente. Considera reducir la carga, dormir más y revisar tu plan de recuperación.</div></div>`;
+    else patternHtml = `<div class="pattern-insight"><div class="pattern-icon">📊</div><div class="pattern-title">Estado estable</div><div class="pattern-text">Tu estado mental es consistente. Mantén tus rutinas y busca pequeñas victorias diarias para impulsar el ánimo.</div></div>`;
+  }
+
+  document.getElementById('journal-content').innerHTML = `
+    ${avgMood ? `<div class="grid-4" style="margin-bottom:16px">
+      <div class="card" style="text-align:center"><div class="stat-number">${avgMood}</div><div class="stat-label">Promedio ánimo</div></div>
+      <div class="card" style="text-align:center"><div class="stat-number">${entries.length}</div><div class="stat-label">Entradas</div></div>
+      <div class="card" style="text-align:center"><div class="stat-number">${entries.filter(e=>e.moodScore>=4).length}</div><div class="stat-label">Días top</div></div>
+      <div class="card" style="text-align:center"><div class="stat-number">${entries.filter(e=>e.moodScore<=2).length}</div><div class="stat-label">Días bajos</div></div>
+    </div>` : ''}
+    ${patternHtml}
+    <div class="card" style="margin-bottom:16px">
+      <div class="card-title" style="margin-bottom:14px">NUEVA ENTRADA</div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text2);letter-spacing:1px;margin-bottom:8px">¿CÓMO TE SIENTES HOY?</div>
+      <div class="mood-grid">
+        ${MOODS.map(m=>`<div class="mood-btn ${selectedMood===m.label?'selected':''}" onclick="selectMood('${m.label}')">
+          <span class="mood-emoji">${m.emoji}</span><span class="mood-label">${m.label}</span>
+        </div>`).join('')}
+      </div>
+      <textarea id="journal-text" placeholder="Describe cómo fue tu entrenamiento hoy, qué salió bien, qué puedes mejorar..." style="width:100%;background:var(--card2);border:1px solid var(--border);border-radius:6px;color:var(--text);font-family:var(--font-body);font-size:14px;padding:12px;outline:none;resize:vertical;min-height:80px;margin-bottom:12px"></textarea>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text2);letter-spacing:1px;margin-bottom:8px">ETIQUETAS</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        ${['Técnica','Velocidad','Resistencia','Táctico','Mental','Remate','Lesión leve','Récord personal'].map(t=>`
+          <span class="journal-tag" style="cursor:pointer" onclick="this.style.background=this.style.background?'':'var(--gold)';this.style.color=this.style.color?'':'var(--black)'">${t}</span>`).join('')}
+      </div>
+      <button class="btn-assess" onclick="addJournalEntry()">GUARDAR ENTRADA</button>
+    </div>
+    <div class="section-title" style="font-size:20px;margin-bottom:12px">HISTORIAL</div>
+    ${entries.length === 0 ? '<p style="color:var(--text2);font-size:13px">Aún no hay entradas. ¡Registra tu primera sesión!</p>' :
+      [...entries].reverse().map(e=>`
+        <div class="journal-entry">
+          <div class="journal-entry-header">
+            <div class="journal-entry-mood">${MOODS.find(m=>m.label===e.mood)?.emoji||'😊'}</div>
+            <div>
+              <div style="font-size:14px;font-weight:500">${e.mood}</div>
+              <div class="journal-entry-date">${e.date}</div>
+            </div>
+          </div>
+          ${e.text ? `<div class="journal-entry-text">${e.text}</div>` : ''}
+          ${e.tags?.length ? `<div>${e.tags.map(t=>`<span class="journal-tag">${t}</span>`).join('')}</div>` : ''}
+        </div>`).join('')}`;
+}
+
+function selectMood(label) {
+  selectedMood = label;
+  renderJournal();
+}
+
+function addJournalEntry() {
+  if (!selectedMood) { showToast('⚠️','Selecciona cómo te sientes hoy.'); return; }
+  const text = document.getElementById('journal-text')?.value?.trim() || '';
+  const tags = [...document.querySelectorAll('.journal-tag')].filter(el=>el.style.background).map(el=>el.textContent);
+  const mood = MOODS.find(m=>m.label===selectedMood);
+  journalEntries.push({ mood:selectedMood, moodScore:mood?.score||3, text, tags, date:new Date().toLocaleString('es-MX') });
+  selectedMood = null;
+  saveProgress();
+  renderJournal();
+  showToast('😊','Entrada guardada en tu diario mental.');
 }
 
 function showToast(icon, msg) {
